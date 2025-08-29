@@ -2,7 +2,7 @@ const config = {
     name: "Khoirul Anam",
     heroSubtitle: "Software Engineer, AI Engineer",
     heroDescription: "Saya seorang software engineer dengan pengalaman di bidang full-stack development dan ketertarikan mendalam pada kecerdasan buatan (AI). Saya bersemangat dalam memecahkan masalah kompleks dan mengubah ide menjadi kenyataan melalui teknologi.",
-    profilePictureUrl: "https://via.placeholder.com/150",
+    profilePictureUrl: "https://i.ibb.co.com/wr2fFS7J/Whats-App-Image-2025-08-29-at-13-25-17.jpg",
     email: "anamskansamal@gmail.com",
     socials: {
         github: "https://github.com/kanam129",
