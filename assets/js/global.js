@@ -67,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = socialLinksHTML;
     };
 
+    const logoName = document.getElementById('logo');
+    if (logoName) logoName.textContent = config.name;
+
     // --- PAGE-SPECIFIC POPULATION ---
     if (page === 'index.html') {
         const heroName = document.getElementById('hero-name');
