@@ -1,5 +1,7 @@
 const config = {
     name: "Khoirul Anam",
+    heroSubtitle: "Software Engineer, AI Engineer",
+    heroDescription: "Saya seorang software engineer dengan pengalaman di bidang full-stack development dan ketertarikan mendalam pada kecerdasan buatan (AI). Saya bersemangat dalam memecahkan masalah kompleks dan mengubah ide menjadi kenyataan melalui teknologi.",
     profilePictureUrl: "https://via.placeholder.com/150",
     email: "anamskansamal@gmail.com",
     socials: {
@@ -11,12 +13,14 @@ const config = {
     skills: [
         "JavaScript (ES6+)",
         "TypeScript",
+        "Python",
+        "Langflow",
+        "Node.js",
+        "Next.js",
         "React",
         "React Native",
-        "Node.js",
         "Express.js",
         "Fastify",
-        "Python",
         "Git",
         "Tailwind CSS",
         "HTML5 & CSS3",
@@ -24,15 +28,15 @@ const config = {
     experience: [
         {
             company: "PT Mitra Pedagang Indonesia",
-            role: "Software Engineer",
+            role: "Full Stack Developer",
             period: "Jan 2022 - Present",
-            description: "Led the development of a new client-facing analytics dashboard using React and D3.js. Mentored junior engineers and improved code quality by implementing a new linting and testing pipeline."
+            description: "Bertanggung jawab untuk memelihara dan mengembangkan fitur-fitur baru pada aplikasi kasir (Point of Sale), memastikan sistem berjalan lancar dan memenuhi kebutuhan bisnis."
         },
         {
             company: "Solvin",
             role: "Front End Developer",
             period: "Jun 2023 - Present",
-            description: "Developed and maintained features for a large-scale e-commerce platform using Vue.js and Node.js. Collaborated with cross-functional teams to deliver high-quality software in an agile environment."
+            description: "Membangun aplikasi konsultasi hukum dari awal menggunakan React Native, dengan fokus pada pengembangan antarmuka pengguna (UI) yang intuitif dan responsif."
         }
     ],
     projects: [

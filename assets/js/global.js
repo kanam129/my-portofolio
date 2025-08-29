@@ -75,6 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroName = document.getElementById('hero-name');
         if (heroName) heroName.textContent = `Hi, I'm ${config.name}`;
 
+        const heroSubtitle = document.getElementById('hero-subtitle');
+        if (heroSubtitle) heroSubtitle.textContent = config.heroSubtitle;
+
+        const heroDescription = document.getElementById('hero-description');
+        if (heroDescription) heroDescription.textContent = config.heroDescription;
+
         const profilePic = document.getElementById('profile-picture');
         if(profilePic) profilePic.src = config.profilePictureUrl;
 
