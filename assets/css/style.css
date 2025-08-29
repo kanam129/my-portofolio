@@ -2,10 +2,10 @@
 This file is for any custom CSS you might want to add.
 For this project, most styles are handled directly in the HTML via Tailwind CSS classes.
 However, you can add global styles, custom animations, or overrides here.
+*/
 
-Example:
 body {
+    font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-*/
