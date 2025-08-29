@@ -1,47 +1,38 @@
 const config = {
-    name: "John Doe",
+    name: "Khoirul Anam",
     profilePictureUrl: "https://via.placeholder.com/150",
-    email: "your.email@example.com",
+    email: "anamskansamal@gmail.com",
     socials: {
-        github: "https://github.com/johndoe",
-        linkedin: "https://linkedin.com/in/johndoe",
-        instagram: "https://instagram.com/johndoe",
-        facebook: "https://facebook.com/johndoe",
+        github: "https://github.com/kanam129",
+        linkedin: "https://linkedin.com/in/k-anam",
+        instagram: "https://instagram.com/a_im88",
+        facebook: "https://facebook.com/aimagination88",
     },
     skills: [
         "JavaScript (ES6+)",
         "TypeScript",
         "React",
-        "Vue.js",
+        "React Native",
         "Node.js",
         "Express.js",
+        "Fastify",
         "Python",
-        "FastAPI",
-        "MongoDB",
-        "PostgreSQL",
-        "Docker",
-        "Git & GitHub",
+        "Git",
         "Tailwind CSS",
         "HTML5 & CSS3",
     ],
     experience: [
         {
-            company: "Tech Solutions Inc.",
-            role: "Senior Software Engineer",
+            company: "PT Mitra Pedagang Indonesia",
+            role: "Software Engineer",
             period: "Jan 2022 - Present",
             description: "Led the development of a new client-facing analytics dashboard using React and D3.js. Mentored junior engineers and improved code quality by implementing a new linting and testing pipeline."
         },
         {
-            company: "Innovate Co.",
-            role: "Software Engineer",
-            period: "Jun 2019 - Dec 2021",
+            company: "Solvin",
+            role: "Front End Developer",
+            period: "Jun 2023 - Present",
             description: "Developed and maintained features for a large-scale e-commerce platform using Vue.js and Node.js. Collaborated with cross-functional teams to deliver high-quality software in an agile environment."
-        },
-        {
-            company: "Digital Agency",
-            role: "Junior Web Developer",
-            period: "Jul 2018 - May 2019",
-            description: "Built responsive websites for various clients using HTML, CSS, and JavaScript. Gained experience with CMS platforms like WordPress."
         }
     ],
     projects: [
