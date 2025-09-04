@@ -50,19 +50,23 @@ const config = {
                 <p>In this full-stack capacity, I was responsible for the entire POS system lifecycle, from user interface design to backend logic. My work included integrating the app with a backend for real-time inventory management, processing digital payments via QRIS, and generating financial reports. This experience allowed me to build a scalable and reliable POS solution that fully supports daily business operations.</p>
                 <p>The app also provides other valuable features such as digital product sales (PPOB), supply chain management (FMCG), and access to financial services for MSMEs.</p>
             `,
-            tags: ['React Native', 'Mobile', 'POS', 'Fullstack', 'E-commerce', 'MSME'],
+            tags: ['React Native', 'Mobile', 'POS', 'Fullstack', 'MSME'],
             imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=MPStore+App',
             liveUrl: 'http://mpstore.co.id/app',
             sourceUrl: '#'
         },
         {
-            id: 'project-beta',
-            title: 'Project Beta',
-            description: 'A mobile-first e-commerce platform with a focus on user experience and performance. Features a clean design and intuitive navigation.',
-            longDescription: 'Project Beta is a headless e-commerce site built with Vue.js and Tailwind CSS for a lightning-fast user interface. It integrates with Firebase for backend services like authentication, Firestore database, and cloud functions for payment processing. The focus was on creating a seamless shopping experience from product discovery to checkout.',
-            tags: ['Vue.js', 'Tailwind CSS', 'Firebase'],
-            imageUrl: 'https://via.placeholder.com/400x250/cbd5e1/475569?text=Project+Beta',
-            liveUrl: '#',
+            id: 'mpstore-miniweb',
+            title: 'MPStore Miniweb',
+            description: 'An e-commerce mini-website platform integrated within the MPStore POS system, enabling merchants to sell their own products.',
+            longDescription: `
+                <p>The <strong>MPStore Miniweb</strong> project is an innovative e-commerce platform that I developed as an integrated feature within the main MPStore Point of Sale (POS) application. This platform allows business owners to create and manage their own online storefront directly from the POS system.</p>
+                <p>My responsibilities included developing the full end-to-end e-commerce functionality, from product listing and inventory management to handling secure payment gateways and shipment tracking. A key highlight of this project is the integration of an <strong>AI-powered chat feature</strong> that streamlines the customer checkout process. Customers can interact with the AI to complete their purchases quickly and seamlessly.</p>
+                <p>This project has enhanced the MPStore ecosystem by empowering small businesses with a powerful digital sales channel. It was a comprehensive full-stack experience that showcased my skills in both front-end and back-end development, ensuring a smooth and efficient user experience for both merchants and customers.</p>
+            `,
+            tags: ['React Native', 'ReactJS', 'NextJS', 'E-commerce', 'AI', 'Fullstack'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=MPStore+Miniweb',
+            liveUrl: 'https://toko.mpstore.co.id/mpixcafe',
             sourceUrl: '#'
         },
         {
