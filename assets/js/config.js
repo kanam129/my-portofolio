@@ -41,13 +41,18 @@ const config = {
     ],
     projects: [
         {
-            id: 'project-alpha',
-            title: 'Project Alpha',
-            description: 'A web application for managing tasks and boosting productivity. Built with a modern frontend framework and a robust backend.',
-            longDescription: 'Project Alpha is a full-featured task management solution designed for teams. It includes features like user authentication, real-time collaboration, project boards, and deadline tracking. The backend is a RESTful API built with Node.js and Express, connected to a MongoDB database for flexible data storage.',
-            tags: ['React', 'Node.js', 'Express', 'MongoDB'],
-            imageUrl: 'https://via.placeholder.com/400x250/cbd5e1/475569?text=Project+Alpha',
-            liveUrl: '#',
+            id: 'mpstore',
+            title: 'MPStore App',
+            description: 'A SuperApp for Indonesian MSMEs, offering a comprehensive suite of digital services and a robust POS system.',
+            longDescription: `
+                <p><strong>MPStore</strong> is a comprehensive SuperApp developed for Indonesian Micro, Small, and Medium Enterprises (MSMEs), primarily focusing on traditional kiosks like Warung Madura. My key role in this project was in developing the Point of Sale (POS) system, which is a core feature of the application.</p>
+                <p>I started as a frontend developer, crafting a highly responsive and intuitive cashier interface using <strong>React Native</strong>. The goal was to create a seamless checkout process that is fast and efficient for business owners. Following the successful implementation of the frontend, I transitioned into a full-stack role for the POS feature.</p>
+                <p>In this full-stack capacity, I was responsible for the entire POS system lifecycle, from user interface design to backend logic. My work included integrating the app with a backend for real-time inventory management, processing digital payments via QRIS, and generating financial reports. This experience allowed me to build a scalable and reliable POS solution that fully supports daily business operations.</p>
+                <p>The app also provides other valuable features such as digital product sales (PPOB), supply chain management (FMCG), and access to financial services for MSMEs.</p>
+            `,
+            tags: ['React Native', 'Mobile', 'POS', 'Fullstack', 'E-commerce', 'MSME'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=MPStore+App',
+            liveUrl: 'http://mpstore.co.id/app',
             sourceUrl: '#'
         },
         {
