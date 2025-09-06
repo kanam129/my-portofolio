@@ -70,12 +70,16 @@ const config = {
             sourceUrl: '#'
         },
         {
-            id: 'project-gamma',
-            title: 'Project Gamma',
-            description: 'An open-source data visualization library for creating interactive charts and graphs. Published as an npm package.',
-            longDescription: 'Project Gamma is a lightweight and modular data visualization library built with pure JavaScript and D3.js. It allows developers to easily create beautiful and interactive charts (bar, line, pie, etc.) with a simple API. The library is highly customizable and was published as a public npm package.',
-            tags: ['JavaScript', 'D3.js', 'SVG', 'NPM'],
-            imageUrl: 'https://via.placeholder.com/400x250/cbd5e1/475569?text=Project+Gamma',
+            id: 'solvin-app',
+            title: 'Solvin App',
+            description: 'A legal consultation platform connecting users with legal experts and lawyers via a chat-based system.',
+            longDescription: `
+                <p><strong>Solvin</strong> is a dual-application legal consultation platform that I built from the ground up as a frontend developer. My main task was to create two separate, yet interconnected, mobile applications for both users and legal professionals.</p>
+                <p>Using <strong>React Native</strong>, I developed a user-friendly app where individuals can hire lawyers and consult with legal experts through a real-time chat feature. The application allows users to ask questions, share documents, and receive professional legal advice conveniently from their mobile devices.</p>
+                <p>Simultaneously, I developed a dedicated app for lawyers and legal experts. This app provides them with a streamlined dashboard to manage their consultations, communicate with clients, and handle case files. Both applications are cross-platform, running seamlessly on both <strong>Android</strong> and <strong>iOS</strong>, ensuring a wide reach and accessibility for all users.</p>
+            `,
+            tags: ['React Native', 'Mobile', 'Frontend', 'Legal Tech', 'Chat'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=Solvin+App',
             liveUrl: '#',
             sourceUrl: '#'
         },
