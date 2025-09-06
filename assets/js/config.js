@@ -83,6 +83,47 @@ const config = {
             liveUrl: '#',
             sourceUrl: '#'
         },
+        {
+            id: 'al-asror-website',
+            title: 'Pondok Tahfizil Qur’an Al-Asror Website',
+            description: 'A comprehensive website for a Qur’an memorization school, featuring a public-facing company profile and an internal management system.',
+            longDescription: `
+                <p>I developed the official website for <strong>Pondok Tahfizil Qur’an Al-Asror</strong> using the <strong>Laravel</strong> framework. The website is divided into two main parts: a public-facing company profile and a comprehensive internal management system.</p>
+                <p>The public section showcases the institution’s mission and includes an article management system for sharing news and achievements. The core of my work was on the internal system, which provides robust features for administration and data management. This includes modules for managing classes and buildings, student and alumni data, dormitories, and tracking the institution’s achievements.</p>
+                <p>This project was a full-stack experience that demonstrated my ability to build complex web applications, manage databases, and create secure systems for both public interaction and internal operations.</p>
+            `,
+            tags: ['Laravel', 'PHP', 'Web Development', 'Fullstack', 'CMS'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=Al-Asror+Website',
+            liveUrl: '#',
+            sourceUrl: '#'
+        },
+        {
+            id: 'personal-project-puppeteer-langflow',
+            title: 'AI Browser Automation',
+            description: 'A personal project utilizing Puppeteer and Langflow to create an AI that can interact with a web browser based on natural language commands.',
+            longDescription: `
+                <p>This project is a personal exploration into the capabilities of AI-driven browser automation. I used <strong>Puppeteer</strong>, a Node.js library, to control a headless browser, and integrated it with <strong>Langflow</strong>, a no-code tool for building and deploying AI applications.</p>
+                <p>The core functionality of this project is to allow an AI to interpret natural language commands and execute actions on a web browser, such as clicking buttons, filling out forms, or navigating to specific pages. This demonstrates the potential for creating intelligent agents that can automate complex web-based tasks and streamline workflows.</p>
+            `,
+            tags: ['AI', 'Puppeteer', 'Langflow', 'Automation', 'Node.js'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=AI+Browser+Automation',
+            liveUrl: '#',
+            sourceUrl: '#'
+        },
+        {
+            id: 'personal-project-erpnext-ai',
+            title: 'ERPNext AI Integration',
+            description: 'A personal project to integrate an AI assistant into ERPNext, enabling conversational control over business data and processes.',
+            longDescription: `
+                <p>This project focused on integrating an AI assistant with <strong>ERPNext</strong>, a comprehensive enterprise resource planning system. Using <strong>Langflow</strong>, I created an AI that is embedded within the ERPNext interface.</p>
+                <p>The AI is able to interact with the ERPNext database by making API calls, allowing it to perform a range of actions based on user commands. This includes creating, viewing, updating, and deleting data entries. For example, a user can simply ask the AI to "create a new sales order for customer X" or "show me the stock level of product Y," and the AI will execute the action by interacting with the ERPNext API.</p>
+                <p>This project showcases my ability to connect advanced AI models with existing business systems to create more intuitive and efficient user experiences.</p>
+            `,
+            tags: ['AI', 'ERPNext', 'Langflow', 'API', 'Fullstack'],
+            imageUrl: 'https://via.placeholder.com/400x250/a1a1aa/3f3f46?text=ERPNext+AI+Integration',
+            liveUrl: '#',
+            sourceUrl: '#'
+        },
     ]
 };
 
