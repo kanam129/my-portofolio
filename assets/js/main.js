@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const detailUrl = `project-detail.html?id=${project.id}`;
             return `
             <a href="${detailUrl}" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-48 object-cover">
+                <img src="${project.imageUrls[0]}" alt="${project.title}" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-xl font-bold mb-2 text-slate-900">${project.title}</h3>
                     <p class="text-slate-600 mb-4">${project.description}</p>
