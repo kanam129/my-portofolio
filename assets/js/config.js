@@ -118,8 +118,8 @@ const config = {
             tags: ['AI', 'ERPNext', 'Langflow', 'API', 'Fullstack'],
             imageUrls: [
                 'https://kanam129.github.io/my-portofolio/assets/images/erpnext_1.png',
-                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_2.png',
-                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_3.png',
+                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_2.jpeg',
+                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_3.jpeg',
             ],
             liveUrl: '#',
             sourceUrl: '#'
