@@ -92,7 +92,7 @@ const config = {
                 <p>React.js, Next.js, Node.js, Express.js, Langflow, Python</p>
             `,
             tags: ['React Native', 'ReactJS', 'NextJS', 'E-commerce', 'AI', 'Fullstack'],
-            imageUrls: ['https://placehold.co/400x250/a1a1aa/3f3f46?text=MPStore+Miniweb'],
+            imageUrls: ['https://kanam129.github.io/my-portofolio/assets/images/miniweb_1.jpg', 'https://kanam129.github.io/my-portofolio/assets/images/miniweb_2.jpg'],
             liveUrl: 'https://toko.mpstore.co.id/mpixcafe',
             sourceUrl: '#'
         },
