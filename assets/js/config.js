@@ -145,7 +145,10 @@ const config = {
                 <p>React Native, Firebase, WebSocket</p>
             `,
             tags: ['React Native', 'Mobile', 'Frontend', 'Legal Tech', 'Chat'],
-            imageUrls: ['https://placehold.co/400x250/a1a1aa/3f3f46?text=Solvin+App'],
+            imageUrls: [
+                'https://kanam129.github.io/my-portofolio/assets/images/solvin_1.jpg',
+                'https://kanam129.github.io/my-portofolio/assets/images/solvin_2.jpg',
+            ],
             liveUrl: '#',
             sourceUrl: '#'
         },
