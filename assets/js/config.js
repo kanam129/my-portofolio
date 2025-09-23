@@ -64,9 +64,9 @@ const config = {
             `,
             tags: ['React Native', 'Mobile', 'POS', 'Fullstack', 'MSME'],
             imageUrls: [
-                'https://placehold.co/400x250/a1a1aa/3f3f46?text=MPStore+App+1',
-                'https://placehold.co/400x250/a1a1aa/3f3f46?text=MPStore+App+2',
-                'https://placehold.co/400x250/a1a1aa/3f3f46?text=MPStore+App+3',
+                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_1.jpg',
+                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_2.jpg',
+                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_3.jpg',
             ],
             liveUrl: 'http://mpstore.co.id/app',
             sourceUrl: '#'
