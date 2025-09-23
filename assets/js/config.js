@@ -116,7 +116,11 @@ const config = {
                 <p>Langflow, Python, ERPNext API, Docker</p>
             `,
             tags: ['AI', 'ERPNext', 'Langflow', 'API', 'Fullstack'],
-            imageUrls: ['https://placehold.co/400x250/a1a1aa/3f3f46?text=ERPNext+AI+Integration'],
+            imageUrls: [
+                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_1.jpg',
+                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_2.jpg',
+                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_3.jpg',
+            ],
             liveUrl: '#',
             sourceUrl: '#'
         },
