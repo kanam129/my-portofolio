@@ -1,8 +1,8 @@
 const config = {
     name: "Khoirul Anam",
     heroSubtitle: "Software Engineer, AI Engineer",
-    heroDescription: "Saya seorang software engineer dengan pengalaman di bidang full-stack development dan ketertarikan mendalam pada kecerdasan buatan (AI). Saya bersemangat dalam memecahkan masalah kompleks dan mengubah ide menjadi kenyataan melalui teknologi.",
-    profilePictureUrl: "https://i.ibb.co.com/wr2fFS7J/Whats-App-Image-2025-08-29-at-13-25-17.jpg",
+    heroDescription: "I am a software engineer with experience in full-stack development and a deep interest in artificial intelligence (AI). I am passionate about solving complex problems and turning ideas into reality through technology.",
+    profilePictureUrl: "https://i.ibb.co/wr2fFS7/Whats-App-Image-2025-08-29-at-13-25-17.jpg",
     email: "anamskansamal@gmail.com",
     socials: {
         github: "https://github.com/kanam129",
@@ -30,13 +30,13 @@ const config = {
             company: "PT Mitra Pedagang Indonesia",
             role: "Full Stack Developer",
             period: "Jan 2022 - Present",
-            description: "Bertanggung jawab untuk memelihara dan mengembangkan fitur-fitur baru pada aplikasi kasir (Point of Sale), memastikan sistem berjalan lancar dan memenuhi kebutuhan bisnis."
+            description: "Responsible for maintaining and developing new features for the cashier application (Point of Sale), ensuring the system runs smoothly and meets business needs."
         },
         {
             company: "Solvin",
             role: "Front End Developer",
             period: "Jun 2023 - Present",
-            description: "Membangun aplikasi konsultasi hukum dari awal menggunakan React Native, dengan fokus pada pengembangan antarmuka pengguna (UI) yang intuitif dan responsif."
+            description: "Building a legal consultation application from scratch using React Native, with a focus on developing an intuitive and responsive user interface (UI)."
         }
     ],
     projects: [
