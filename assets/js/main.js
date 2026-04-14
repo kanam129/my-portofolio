@@ -1,23 +1,33 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- RENDER FEATURED PROJECTS (FIRST 3) ---
-    const projectList = document.getElementById('project-list');
-    if (projectList && typeof projects !== 'undefined') {
-        // Take only the first 3 projects for the homepage preview
-        const featuredProjects = projects.slice(0, 3);
+  const projectList = document.getElementById('project-list');
+  if (!projectList || typeof projects === 'undefined') return;
 
-        projectList.innerHTML = featuredProjects.map(project => {
-            const detailUrl = `project-detail.html?id=${project.id}`;
-            return `
-            <a href="${detailUrl}" class="block bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
-                <img src="${project.imageUrls[0]}" alt="${project.title}" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2 text-slate-900">${project.title}</h3>
-                    <p class="text-slate-600 mb-4">${project.description}</p>
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        ${project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-xs font-semibold px-2.5 py-1 rounded-full">${tag}</span>`).join('')}
-                    </div>
-                </div>
-            </a>
-        `}).join('');
-    }
+  const featured = projects.slice(0, 3);
+
+  projectList.innerHTML = featured.map((project, i) => {
+    const detailUrl = `project-detail.html?id=${project.id}`;
+    const imgSrc = project.imageUrls?.[0] || 'https://placehold.co/600x400/0d1628/63b3ed?text=Project';
+    return `
+      <a href="${detailUrl}" class="project-card fade-in-up fade-delay-${i + 1}">
+        <div class="project-card-image">
+          <img src="${imgSrc}" alt="${project.title}" loading="lazy">
+          <div class="project-card-image-overlay"></div>
+        </div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">${project.title}</h3>
+          <p class="project-card-desc">${project.description}</p>
+          <div class="project-tags">
+            ${project.tags.map(tag => `<span class="tag-chip">${tag}</span>`).join('')}
+          </div>
+        </div>
+        <div class="project-card-arrow">
+          View Project
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  // Auto-detect portrait images and apply blur backdrop
+  if (window.detectPortraitImages) window.detectPortraitImages('#project-list');
 });

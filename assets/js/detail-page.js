@@ -1,120 +1,132 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const projectDetailContent = document.getElementById('project-detail-content');
+  const content = document.getElementById('project-detail-content');
+  const urlParams = new URLSearchParams(window.location.search);
+  const projectId = urlParams.get('id');
 
-    // Get project ID from URL query parameter
-    const urlParams = new URLSearchParams(window.location.search);
-    const projectId = urlParams.get('id');
+  if (!content || typeof projects === 'undefined' || !projectId) return;
 
-    if (projectDetailContent && typeof projects !== 'undefined' && projectId) {
-        const project = projects.find(p => p.id === projectId);
+  const project = projects.find(p => p.id === projectId);
 
-        if (project) {
-            // Update page title
-            document.title = `${project.title} - Project Detail`;
+  if (!project) {
+    content.innerHTML = `
+      <div style="text-align:center; padding: 80px 0;">
+        <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800; color:var(--text-primary); margin-bottom:16px;">Project Not Found</h1>
+        <p style="color:var(--text-secondary); margin-bottom:40px;">The project you're looking for doesn't exist.</p>
+        <a href="projects.html" class="btn-secondary">← Back to Projects</a>
+      </div>
+    `;
+    return;
+  }
 
-            // --- Image Gallery --- //
-            let imageGalleryHTML = '';
-            if (project.imageUrls && project.imageUrls.length > 0) {
-                imageGalleryHTML = `
-                    <div class="mb-8">
-                        <img id="main-image" src="${project.imageUrls[0]}" alt="${project.title}" class="w-full max-w-4xl mx-auto h-auto rounded-lg shadow-lg mb-4">
-                        <div id="thumbnail-container" class="flex justify-center gap-4 flex-wrap">
-                            ${project.imageUrls.map((url, index) => `
-                                <img src="${url}" alt="Thumbnail ${index + 1}" class="w-24 h-24 object-cover rounded-md cursor-pointer border-2 border-transparent hover:border-slate-500 transition-all" data-index="${index}">
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            } else if (project.imageUrl) { // Fallback for single image
-                imageGalleryHTML = `<img src="${project.imageUrl}" alt="${project.title}" class="w-full max-w-4xl mx-auto h-auto rounded-lg shadow-lg mb-8">`;
-            }
+  // Update page title
+  document.title = `${project.title} — Khoirul Anam`;
 
-            // Render project details
-            projectDetailContent.innerHTML = `
-                <article>
-                    <h1 class="text-4xl md:text-5xl font-bold text-center text-slate-900 mb-8">${project.title}</h1>
-                    
-                    ${imageGalleryHTML}
+  const hasImages = project.imageUrls && project.imageUrls.length > 0;
+  const mainImgSrc = hasImages ? project.imageUrls[0] : 'https://placehold.co/1200x600/0d1628/63b3ed?text=Project';
 
-                    <div class="max-w-3xl mx-auto">
-                        <div class="flex flex-wrap justify-center gap-2 mb-8">
-                            ${project.tags.map(tag => `<span class="bg-slate-200 text-slate-700 text-xs font-semibold px-3 py-1.5 rounded-full">${tag}</span>`).join('')}
-                        </div>
+  const thumbnailsHTML = hasImages && project.imageUrls.length > 1
+    ? project.imageUrls.map((url, i) => `
+        <img src="${url}" alt="Thumbnail ${i + 1}" class="detail-thumb ${i === 0 ? 'active' : ''}" data-index="${i}" loading="lazy">
+      `).join('')
+    : '';
 
-                        <div class="prose lg:prose-xl max-w-none text-slate-700">
-                            <!-- <p class="lead text-xl">${project.description}</p> -->
-                            <p>${project.longDescription || ''}</p>
-                        </div>
+  content.innerHTML = `
+    <a href="projects.html" class="detail-back-link fade-in-up">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      All Projects
+    </a>
 
-                        <div class="flex justify-center gap-6 mt-12">
-                            <a href="${project.sourceUrl}" target="_blank" rel="noopener noreferrer" class="text-slate-100 bg-slate-600 hover:bg-slate-500 font-bold py-3 px-6 rounded-lg transition-colors">
-                                View Source Code
-                            </a>
-                            <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="text-white bg-slate-800 hover:bg-slate-700 font-bold py-3 px-6 rounded-lg transition-colors">
-                                Visit Live Site
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            `;
+    <div class="fade-in-up fade-delay-1">
+      <h1 class="detail-title">${project.title}</h1>
+      <div class="detail-tags">
+        ${project.tags.map(tag => `<span class="tag-chip">${tag}</span>`).join('')}
+      </div>
+    </div>
 
-            // --- Gallery Logic --- //
-            const mainImage = document.getElementById('main-image');
-            const thumbnailContainer = document.getElementById('thumbnail-container');
-            let currentIndex = 0;
-            let autoSlideInterval;
+    <div class="detail-main-image fade-in-up fade-delay-2">
+      <img id="main-image" src="${mainImgSrc}" alt="${project.title}">
+    </div>
 
-            const updateMainImage = (index) => {
-                if (!mainImage || !project.imageUrls) return;
-                mainImage.src = project.imageUrls[index];
-                currentIndex = index;
+    ${thumbnailsHTML ? `<div id="thumbnail-container" class="detail-thumbnails fade-in-up fade-delay-3">${thumbnailsHTML}</div>` : ''}
 
-                // Update active thumbnail border
-                const thumbnails = thumbnailContainer.querySelectorAll('img');
-                thumbnails.forEach((thumb, i) => {
-                    thumb.classList.toggle('border-slate-800', i === index);
-                    thumb.classList.toggle('border-transparent', i !== index);
-                });
-            };
+    <div class="detail-prose fade-in-up fade-delay-3">
+      ${project.longDescription || `<p>${project.description}</p>`}
+    </div>
 
-            const startAutoSlide = () => {
-                if (!project.imageUrls || project.imageUrls.length <= 1) return;
-                autoSlideInterval = setInterval(() => {
-                    const nextIndex = (currentIndex + 1) % project.imageUrls.length;
-                    updateMainImage(nextIndex);
-                }, 5000); // Change image every 3 seconds
-            };
+    <div class="detail-cta fade-in-up fade-delay-4">
+      ${project.liveUrl && project.liveUrl !== '#' ? `
+        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Visit Live Site
+        </a>
+      ` : ''}
+      ${project.sourceUrl && project.sourceUrl !== '#' ? `
+        <a href="${project.sourceUrl}" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          Source Code
+        </a>
+      ` : ''}
+    </div>
+  `;
 
-            const stopAutoSlide = () => {
-                clearInterval(autoSlideInterval);
-            };
+  // Initial portrait detection for project cards area and detail image
+  setTimeout(() => {
+    if (window.detectPortraitImages) window.detectPortraitImages('.detail-main-image');
+  }, 100);
 
-            if (thumbnailContainer) {
-                thumbnailContainer.addEventListener('click', (e) => {
-                    if (e.target.tagName === 'IMG') {
-                        stopAutoSlide(); // Stop auto-slide on manual interaction
-                        const newIndex = parseInt(e.target.dataset.index, 10);
-                        updateMainImage(newIndex);
-                        // Optional: Restart auto-slide after a delay
-                        setTimeout(startAutoSlide, 5000); // Restart after 5 seconds
-                    }
-                });
+  // ============================================================
+  // IMAGE GALLERY LOGIC
+  // ============================================================
+  if (!hasImages || project.imageUrls.length <= 1) return;
 
-                // Initial setup
-                updateMainImage(0);
-                startAutoSlide();
-            }
-        } else {
-            // Project not found
-            projectDetailContent.innerHTML = `
-                <div class="text-center">
-                    <h1 class="text-4xl font-bold text-slate-900">Project Not Found</h1>
-                    <p class="text-slate-600 mt-4">The project you are looking for does not exist.</p>
-                    <a href="projects.html" class="mt-8 inline-block bg-slate-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-slate-700 transition-colors">
-                        Return to All Projects
-                    </a>
-                </div>
-            `;
-        }
-    }
+  const mainImage = document.getElementById('main-image');
+  const thumbContainer = document.getElementById('thumbnail-container');
+  if (!mainImage || !thumbContainer) return;
+
+  let currentIndex = 0;
+  let autoSlide;
+
+  const updateImage = (index) => {
+    mainImage.style.opacity = '0';
+    mainImage.style.transform = 'scale(1.02)';
+    setTimeout(() => {
+      mainImage.src = project.imageUrls[index];
+      mainImage.style.opacity = '1';
+      mainImage.style.transform = 'scale(1)';
+
+      // Re-detect portrait on image switch
+      const wrap = mainImage.closest('.detail-main-image');
+      if (wrap) {
+        const existing = wrap.querySelector('.img-blur-bg');
+        if (existing) existing.remove();
+        wrap.classList.remove('is-portrait');
+      }
+      if (window.detectPortraitImages) window.detectPortraitImages('.detail-main-image');
+    }, 200);
+    mainImage.style.transition = 'opacity 0.3s ease, transform 0.4s ease';
+
+    currentIndex = index;
+    thumbContainer.querySelectorAll('.detail-thumb').forEach((t, i) => {
+      t.classList.toggle('active', i === index);
+    });
+  };
+
+  const startAuto = () => {
+    autoSlide = setInterval(() => {
+      updateImage((currentIndex + 1) % project.imageUrls.length);
+    }, 5000);
+  };
+
+  const stopAuto = () => clearInterval(autoSlide);
+
+  thumbContainer.addEventListener('click', (e) => {
+    const thumb = e.target.closest('.detail-thumb');
+    if (!thumb) return;
+    stopAuto();
+    updateImage(parseInt(thumb.dataset.index, 10));
+    setTimeout(startAuto, 6000);
+  });
+
+  updateImage(0);
+  startAuto();
 });

@@ -2,7 +2,7 @@ const config = {
     name: "Khoirul Anam",
     heroSubtitle: "Software Engineer, AI Engineer",
     heroDescription: "I am a software engineer with experience in full-stack development and a deep interest in artificial intelligence (AI). I am passionate about solving complex problems and turning ideas into reality through technology.",
-    profilePictureUrl: "https://i.ibb.co/wr2fFS7/Whats-App-Image-2025-08-29-at-13-25-17.jpg",
+    profilePictureUrl: "assets/images/profile.jpeg",
     email: "anamskansamal@gmail.com",
     socials: {
         github: "https://github.com/kanam129",
@@ -13,14 +13,22 @@ const config = {
     skills: [
         "JavaScript (ES6+)",
         "TypeScript",
+        "Rust",
         "Python",
+        "LangChain",
+        "MCP",
         "Langflow",
+        "n8n",
         "Node.js",
         "Next.js",
         "React",
         "React Native",
+        "Expo",
         "Express.js",
         "Fastify",
+        "MySQL",
+        "PostgreSQL",
+        "Cloudflare Wrangler",
         "Git",
         "Tailwind CSS",
         "HTML5 & CSS3",
@@ -74,27 +82,126 @@ const config = {
         {
             id: 'mpstore-miniweb',
             title: 'MPStore Miniweb',
-            description: 'An e-commerce mini-website platform integrated within the MPStore POS system, enabling merchants to sell their own products.',
+            description: 'Platform e-commerce mini-website per-merchant yang terintegrasi dengan ekosistem MPStore POS, lengkap dengan AI chat checkout, peta interaktif, dan deploy edge via Cloudflare Workers.',
             longDescription: `
-                <p>The <strong>MPStore Miniweb</strong> project is an innovative e-commerce platform that I developed as an integrated feature within the main MPStore Point of Sale (POS) application. This platform allows business owners to create and manage their own online storefront directly from the POS system.</p>
-                <p>My responsibilities included developing the full end-to-end e-commerce functionality, from product listing and inventory management, to handling secure payment gateways and shipment tracking. A key highlight of this project is the integration of an <strong>AI-powered chat feature</strong> that streamlines the customer checkout process. Customers can interact with the AI to complete their purchases quickly and seamlessly.</p>
-                <p>This project has enhanced the MPStore ecosystem by empowering small businesses with a powerful digital sales channel. It was a comprehensive full-stack experience that showcased my skills in both front-end and back-end development, ensuring a smooth and efficient user experience for both merchants and customers.</p>
+                <p>The <strong>MPStore Miniweb</strong> is a multi-tenant e-commerce platform I built as an integrated feature within the MPStore POS ecosystem. Each merchant automatically gets their own branded storefront accessible at a unique URL (e.g., <code>toko.mpstore.co.id/[store-slug]</code>), requiring zero additional configuration from the business owner.</p>
+                <p>I was responsible for the full end-to-end architecture — from designing the dynamic routing system in <strong>Next.js 14 App Router</strong> to integrating a complete shopping flow covering product browsing, cart management, shipping calculation, and payment processing. The platform supports digital product downloads as well, giving merchants flexibility over what they sell.</p>
+                <p>A key highlight is the <strong>AI-powered chat checkout</strong> feature. Using <strong>Langflow</strong>, I built a conversational AI agent that can answer product questions and guide customers through the entire checkout process through a natural chat interface — reducing drop-off and improving conversion for small merchants.</p>
+                <p>The platform also integrates <strong>interactive maps</strong> via Leaflet for address picking, <strong>geolocation</strong> for auto-detecting customer location, and <strong>QR code generation</strong> for digital product delivery. The entire application is deployed on <strong>Cloudflare Workers</strong> using OpenNext for edge-optimized performance globally.</p>
                 <br>
                 <h4>Key Features:</h4>
                 <ul>
-                    <li>E-commerce storefront creation and management</li>
-                    <li>Product and inventory management</li>
-                    <li>AI-powered chat for customer checkout</li>
+                    <li>Multi-tenant storefront — unique URL per merchant</li>
+                    <li>Full e-commerce flow: product listing, cart, checkout, order tracking</li>
+                    <li>AI chat-based checkout powered by Langflow</li>
+                    <li>Interactive map & geolocation for delivery address</li>
+                    <li>Digital product download support with QR code</li>
                     <li>Secure payment gateway integration</li>
+                    <li>Edge deployment via Cloudflare Workers (OpenNext)</li>
                 </ul>
                 <br>
                 <h4>Technical Stack:</h4>
-                <p>React.js, Next.js, Node.js, Express.js, Langflow, Python</p>
+                <p>Next.js 14, TypeScript, Tailwind CSS, Langflow, Leaflet, next-auth, Cloudflare Workers (OpenNext / Wrangler)</p>
             `,
-            tags: ['React Native', 'ReactJS', 'NextJS', 'E-commerce', 'AI', 'Fullstack'],
+            tags: ['Next.js', 'TypeScript', 'E-commerce', 'Multi-tenant', 'AI Chatbot', 'Langflow', 'Cloudflare Workers', 'Fullstack'],
             imageUrls: ['https://kanam129.github.io/my-portofolio/assets/images/miniweb_1.jpg', 'https://kanam129.github.io/my-portofolio/assets/images/miniweb_2.jpg'],
             liveUrl: 'https://toko.mpstore.co.id/mpixcafe',
             sourceUrl: '#'
+        },
+        {
+            id: 'stock-analysis-mcp-server',
+            title: 'Stock Analysis MCP Server',
+            description: 'Dual-mode server analisis saham IDX & global dengan 16 tools teknikal, fundamental, dan berita — bisa dijalankan sebagai REST API maupun MCP Server untuk Claude Desktop.',
+            longDescription: `
+                <p><strong>Stock Analysis MCP Server</strong> adalah server analisis saham berbasis Python yang dirancang untuk mendukung dua mode operasi sekaligus: sebagai <strong>REST API</strong> (via FastAPI/uvicorn) dan sebagai <strong>MCP Server</strong> (Model Context Protocol) yang dapat terkoneksi langsung ke Claude Desktop atau editor seperti Cursor.</p>
+                <p>Saya mengembangkan proyek ini secara personal untuk menjawab kebutuhan analisis saham IDX yang lebih mendalam dan otomatis. Versi ketiga (v3) hadir dengan perbaikan bug pada kolom Bollinger Bands di pandas-ta, pembaruan konstituen LQ45/IDX30/IDX80 ke periode resmi BEI 2026, serta penambahan indikator teknikal lanjutan seperti Stochastic Oscillator, ATR, ADX+DI, OBV, VWAP 20-hari, Williams %R, CCI, Golden/Death Cross, dan Ichimoku Cloud.</p>
+                <p>Screening engine yang tersedia mendukung kombinasi filter fundamental dan teknikal secara bersamaan dengan preset siap pakai (value, dividend, growth, oversold, momentum, defensive, quality), serta sumber berita real-time tanpa API key melalui DuckDuckGo dan RSS feed dari CNBC Indonesia, Kontan, Bisnis.com, Reuters, Bloomberg, dan Financial Times.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Dual-mode: REST API (FastAPI) + MCP Server (stdio) dalam satu file</li>
+                    <li>16 tools: teknikal dasar & lanjutan, fundamental, screening, berita</li>
+                    <li>Indikator teknikal lanjutan: Stochastic, ATR, ADX, OBV, VWAP, Williams %R, CCI, Ichimoku Cloud, Golden/Death Cross</li>
+                    <li>Screening saham IDX (LQ45/IDX30/IDX80/Sektoral) dengan 15+ filter fundamental & teknikal + 7 preset siap pakai</li>
+                    <li>Berita ekonomi real-time via DuckDuckGo Search + 9 RSS feed Indonesia & global (tanpa API key)</li>
+                    <li>In-memory caching untuk efisiensi request API</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Python, FastAPI, Uvicorn, MCP (Model Context Protocol), pandas, pandas-ta, NumPy, DuckDuckGo Search, feedparser</p>
+            `,
+            tags: ['Python', 'MCP Server', 'FastAPI', 'Stock Analysis', 'AI Tools'],
+            imageUrls: [
+                'assets/images/mcp-saham/1.png',
+                'assets/images/mcp-saham/2.png',
+                'assets/images/mcp-saham/3.png',
+                'assets/images/mcp-saham/4.png',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'garsindo-erp-dashboard',
+            title: 'Garsindo ERP Dashboard',
+            description: 'A custom-built internal ERP dashboard for a distribution company, covering the full sales cycle from quotation to invoice and payment, built with AdminJS.',
+            longDescription: `
+                <p><strong>Garsindo ERP Dashboard</strong> adalah sistem manajemen internal berbasis web yang dibangun khusus untuk perusahaan distribusi, mencakup seluruh siklus operasional bisnis mulai dari pengadaan, penjualan, hingga akuntansi.</p>
+                <p>Saya bertanggung jawab penuh atas arsitektur dan pengembangan sistem ini sebagai fullstack developer. Proyek ini dibangun di atas <strong>AdminJS</strong> dengan backend <strong>Express.js</strong> dan <strong>Sequelize ORM</strong>, dengan kustomisasi mendalam pada setiap resource — termasuk custom action handlers, before/after hooks, dan komponen React kustom untuk masing-masing modul. Tantangan terbesar adalah merancang alur dokumen yang saling terhubung: Sales Quotation → Sales Order → Sales Delivery → Sales Invoice → Sales Payment, dengan logika agregasi otomatis dan validasi stok real-time di setiap tahapan.</p>
+                <p>Sistem ini juga dilengkapi fitur cetak dokumen (invoice, surat jalan) berbasis template HTML, manajemen stok dengan FIFO stock movement, serta modul akuntansi dengan Chart of Account dan jurnal otomatis.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Alur penjualan lengkap: Quotation → Order → Delivery → Invoice → Payment</li>
+                    <li>Manajemen stok real-time dengan FIFO stock movement dan multi-warehouse</li>
+                    <li>Custom React components untuk input detail item, pajak, dan multi-dokumen selector</li>
+                    <li>Cetak dokumen (invoice & surat jalan) berbasis template HTML kustom</li>
+                    <li>Modul pembelian (Purchase Order, Receiving, Purchase Invoice, Payment)</li>
+                    <li>Modul akuntansi dengan Chart of Account dan pelacakan piutang/hutang</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>AdminJS, React, TypeScript, Express.js, Sequelize ORM, PostgreSQL, Node.js</p>
+            `,
+            tags: ['AdminJS', 'TypeScript', 'Fullstack', 'ERP', 'Node.js', 'PostgreSQL'],
+            imageUrls: [
+                'assets/images/garsindo/1.jpeg',
+                'assets/images/garsindo/2.jpeg',
+                'assets/images/garsindo/3.jpeg',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'mpstore-payment-link',
+            title: 'MPStore Payment Link & Invoice',
+            description: 'A shareable payment link system integrated with the MPStore ecosystem, allowing merchants to send invoice links to customers for seamless multi-method payment.',
+            longDescription: `
+                <p><strong>MPStore Payment Link & Invoice</strong> adalah sistem pembayaran berbasis link yang dibangun sebagai bagian dari ekosistem MPStore. Merchant dapat mengirimkan link tagihan ke pelanggan, dan pelanggan cukup membuka link tersebut untuk melihat detail invoice dan langsung menyelesaikan pembayaran — tanpa perlu install aplikasi apapun.</p>
+                <p>Saya mengerjakan project ini secara penuh sebagai fullstack developer. Tantangan utamanya adalah mengelola tiga mode integrasi payment sekaligus: flow standar MPStore (via order ID terenkripsi), flow H2H (Host-to-Host direct dengan bank), dan flow Web (integrasi third-party tanpa autentikasi MPStore). Setiap mode memiliki logika enkripsi payload, admin fee calculation, dan status polling yang berbeda. Admin fee dihitung secara dinamis — QRIS menggunakan reverse fee formula, kartu kredit pakai persentase flat, sementara virtual account mengambil harga fee dari API secara real-time.</p>
+                <p>Seluruh aplikasi di-deploy di edge menggunakan <strong>Cloudflare Workers</strong> via OpenNext, sehingga response time payment page tetap cepat meskipun diakses dari berbagai region. QR code untuk bukti transaksi di-generate langsung di sisi client tanpa roundtrip ke server.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Shareable invoice link dengan enkripsi order ID untuk keamanan</li>
+                    <li>Multi-method payment: QRIS, Virtual Account (multi-bank), Kartu Kredit</li>
+                    <li>Dynamic admin fee calculator (reverse QRIS fee, flat CC rate, real-time VA fee)</li>
+                    <li>Tiga mode integrasi: Standard, H2H (Host-to-Host), dan Web</li>
+                    <li>Real-time payment status polling otomatis</li>
+                    <li>QR code generation untuk bukti pembayaran digital</li>
+                    <li>Edge deployment via Cloudflare Workers (OpenNext / Wrangler)</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Next.js 15, TypeScript, Tailwind CSS, Cloudflare Workers, OpenNext, Wrangler, Axios, Moment.js</p>
+            `,
+            tags: ['Next.js', 'TypeScript', 'Cloudflare Workers', 'Fullstack', 'Payment'],
+            imageUrls: [
+                'assets/images/payment-link/1.jpeg',
+                'assets/images/payment-link/2.jpeg',
+                'assets/images/payment-link/3.jpeg',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
         },
         {
             id: 'personal-project-erpnext-ai',
@@ -125,6 +232,69 @@ const config = {
             sourceUrl: '#'
         },
         {
+            id: 'mpstore-cashier-dashboard',
+            title: 'MPStore Cashier Dashboard',
+            description: 'Dashboard manajemen multi-branch untuk sistem kasir MPStore. Menyediakan tampilan agregasi data produk, sinkronisasi antar cabang, dan filtering canggih secara real-time.',
+            longDescription: `
+                <p><strong>MPStore Cashier Dashboard</strong> adalah sistem dashboard berbasis web yang dirancang untuk mengelola data operasional dari beberapa cabang toko (branch) sekaligus dalam satu antarmuka terpusat.</p>
+                <p>Saya membangun sistem ini secara fullstack — mulai dari arsitektur backend API dengan Rust (Axum + SeaORM) yang performant, hingga frontend Next.js menggunakan pola BFF (Backend for Frontend) dengan Shadcn UI. Tantangan utamanya adalah merancang sistem filter berbasis JSON yang fleksibel di sisi Rust, serta memastikan sinkronisasi data produk antar branch berjalan konsisten dengan kontrol granular per cabang.</p>
+                <p>Sistem ini menerapkan URL-synchronized filtering menggunakan React hooks (<code>useCallback</code>, <code>useMemo</code>), sehingga state filter tetap persisten saat navigasi. Backend Rust memproses query filter kompleks secara efisien langsung di sisi server.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Dashboard agregasi multi-branch dengan filter cabang dinamis</li>
+                    <li>Manajemen produk dengan Advanced Filter Builder berbasis JSON</li>
+                    <li>Sinkronisasi produk antar cabang (termasuk bulk sync "Sapu Jagat")</li>
+                    <li>Kontrol hak edit harga per cabang via flag <code>sync_allow_custom_price</code></li>
+                    <li>URL-synchronized filter state untuk UX yang konsisten</li>
+                    <li>Autentikasi dan server-side data fetching dengan pola BFF</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Rust, Axum, SeaORM, Next.js, TypeScript, Shadcn UI, React, PostgreSQL</p>
+            `,
+            tags: ['Rust', 'Next.js', 'Fullstack', 'Dashboard', 'TypeScript', 'SeaORM'],
+            imageUrls: [
+                'assets/images/cashier-dashboard/1.jpeg',
+                'assets/images/cashier-dashboard/2.jpeg',
+                'assets/images/cashier-dashboard/3.jpeg',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'agendakota-app',
+            title: 'AgendaKota — Event Management App',
+            description: 'Aplikasi mobile untuk manajemen event end-to-end, mulai dari pembuatan event, penjualan tiket, hingga check-in peserta berbasis QR Code.',
+            longDescription: `
+                <p><strong>AgendaKota</strong> adalah platform manajemen event berbasis mobile yang dirancang untuk para organizer event di Indonesia. Aplikasi ini menyediakan ekosistem lengkap untuk mengelola seluruh siklus hidup sebuah event — dari pembuatan event dan organisasi, penjualan tiket berbayar maupun gratis, hingga check-in peserta secara real-time melalui scan QR Code.</p>
+                <p>Saya mengerjakan project ini sebagai mobile frontend developer, membangun seluruh antarmuka menggunakan <strong>React Native (Expo)</strong> dengan <strong>NativeWind</strong> sebagai styling system. Tantangan utamanya adalah mengimplementasikan sistem autentikasi berlapis — termasuk login via Google OAuth, OTP, dan Two-Factor Authentication — serta membangun mekanisme keamanan request level frontend berupa JWT-signed <code>x-api-key</code> dengan AES-256-CBC payload encryption untuk setiap API call.</p>
+                <p>Arsitektur aplikasi menggunakan Expo Router dengan file-based routing, dipadukan dengan React Hook Form + Zod untuk validasi form, dan design system kustom menggunakan token warna dan komponen yang konsisten di seluruh halaman dashboard, event, keuangan, dan profil.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Manajemen multi-organisasi dan multi-event dalam satu akun</li>
+                    <li>Penjualan tiket berbayar dan gratis dengan sistem voucher diskon</li>
+                    <li>QR Code scanner untuk check-in peserta secara real-time</li>
+                    <li>Dashboard statistik organizer (active events, revenue, total peserta, check-in)</li>
+                    <li>Login multi-method: Email/Password, Google OAuth, OTP via email, 2FA</li>
+                    <li>API security layer dengan JWT x-api-key dan AES-256-CBC payload encryption</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>React Native, Expo (SDK 54), TypeScript, NativeWind, Expo Router, React Hook Form, Zod, Axios, Day.js, expo-camera, expo-auth-session</p>
+            `,
+            tags: ['React Native', 'Expo', 'TypeScript', 'Mobile', 'Event Management'],
+            imageUrls: [
+                'assets/images/agendakota/1.jpeg',
+                'assets/images/agendakota/2.jpeg',
+                'assets/images/agendakota/3.jpeg',
+                'assets/images/agendakota/4.jpeg',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
             id: 'solvin-app',
             title: 'Solvin App',
             description: 'A legal consultation platform connecting users with legal experts and lawyers via a chat-based system.',
@@ -151,6 +321,35 @@ const config = {
             ],
             liveUrl: '#',
             sourceUrl: '#'
+        },
+        {
+            id: 'pay-access',
+            title: 'Pay Access',
+            description: 'Aplikasi mobile fintech cross-platform untuk transfer uang internasional dengan konversi mata uang real-time. Mendukung berbagai metode pembayaran seperti QRIS dan kartu kredit/debit.',
+            longDescription: `
+                <p><strong>Pay Access</strong> adalah aplikasi mobile fintech yang dibangun untuk memfasilitasi transfer uang lintas negara dengan konversi mata uang secara real-time, dirancang agar dapat berjalan di Android, iOS, maupun web dari satu codebase.</p>
+                <p>Saya mengerjakan project ini sebagai personal project fullstack — mulai dari arsitektur navigasi berbasis file-system routing menggunakan Expo Router, integrasi REST API untuk autentikasi dan manajemen penerima, hingga seluruh tampilan UI menggunakan NativeWind. Tantangan utamanya adalah memastikan pengalaman yang konsisten antara platform mobile dan web sambil tetap menjaga performa dengan teknik memoization (<code>useCallback</code>, <code>useMemo</code>).</p>
+                <p>Project ini menggunakan event-driven state management antar screen agar data seperti currency yang dipilih dan metode pembayaran dapat dikomunikasikan secara efisien tanpa overhead Redux yang berlebihan.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Transfer uang internasional dengan konversi real-time (USD ↔ IDR dan multi-currency)</li>
+                    <li>Dukungan metode pembayaran QRIS dan kartu kredit/debit dengan alur berbeda</li>
+                    <li>Manajemen daftar penerima (tambah, simpan, pilih bank & nomor rekening)</li>
+                    <li>Riwayat transaksi terkelompok per tanggal (hari ini, kemarin, minggu ini)</li>
+                    <li>Autentikasi aman dengan Expo Secure Store & session management</li>
+                    <li>Dukungan multi-bahasa (i18n) dan tampilan responsif untuk mobile & web</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>React Native, Expo SDK 54, Expo Router, TypeScript, NativeWind (Tailwind CSS), Redux Toolkit, Axios, React Native Reanimated, i18n-js, Expo Secure Store, Expo Haptics</p>
+            `,
+            tags: ['React Native', 'Expo', 'Fintech', 'TypeScript', 'NativeWind', 'Fullstack'],
+            imageUrls: [
+                'https://placehold.co/600x400/0d1628/63b3ed?text=Pay+Access',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
         },
         {
             id: 'personal-project-puppeteer-langflow',
