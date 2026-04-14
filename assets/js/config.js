@@ -1,14 +1,17 @@
 const config = {
     name: "Khoirul Anam",
     heroSubtitle: "Software Engineer, AI Engineer",
-    heroDescription: "I am a software engineer with experience in full-stack development and a deep interest in artificial intelligence (AI). I am passionate about solving complex problems and turning ideas into reality through technology.",
+    heroDescription: "I'm a software engineer with experience in full-stack development and a deep interest in artificial intelligence. Passionate about solving complex problems and turning ideas into reality through technology.",
+    cvDescription: "A results-driven Software Engineer & AI Engineer with over {years} years of professional experience delivering end-to-end solutions across web and mobile platforms. Specializing in React Native, Next.js, Node.js, and AI integration using LangChain, MCP Server, and agentic AI pipelines — consistently translating complex business requirements into clean, maintainable, and high-impact software. Committed to continuous learning and building products that create real, measurable value.",
+    careerStartYear: 2022,
     profilePictureUrl: "assets/images/profile.jpeg",
     email: "anamskansamal@gmail.com",
     socials: {
         github: "https://github.com/kanam129",
-        linkedin: "https://linkedin.com/in/k-anam",
-        instagram: "https://instagram.com/a_im88",
+        linkedin: "https://www.linkedin.com/in/k-anam/",
+        instagram: "https://www.instagram.com/a_im88/",
         facebook: "https://facebook.com/aimagination88",
+        website: "https://kanam129.github.io/my-portofolio/"
     },
     skills: [
         "JavaScript (ES6+)",
@@ -45,6 +48,22 @@ const config = {
             role: "Front End Developer",
             period: "Jun 2023 - Present",
             description: "Building a legal consultation application from scratch using React Native, with a focus on developing an intuitive and responsive user interface (UI)."
+        }
+    ],
+    education: [
+        {
+            degree: "Sistem Informasi",
+            institution: "University of Trunojoyo Madura",
+            level: "S1",
+            period: "08/2019 - 08/2025",
+            gpa: "3.83",
+            description: "Balanced high academic performance with active participation in competitions and research, honing practical skills alongside theoretical knowledge.",
+            achievements: [
+                "2nd Place — Essay Competition, English Festival 2021",
+                "Bronze Medal — National Applied Science Project Olympiad 2020",
+                "Author — Khazanah: Jurnal Mahasiswa Volume 12 Issue 2",
+                "2nd Place — TREN LKTIN 2020"
+            ]
         }
     ],
     projects: [

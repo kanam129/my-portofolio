@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khoirul Anam - CV - Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* =============================================
+       GLOBAL RESET
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink-darkest: #0f1117;
+      --ink-mid:     #374151;
+      --ink-light:   #6b7280;
+      --ink-faint:   #9ca3af;
+      --accent:      #2563eb;
+      --accent-2:    #7c3aed;
+      --border:      #e2e8f0;
+      --sidebar-bg:  #0f1117;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      background: #d1d5db;
+    }
+
+    /* =============================================
+       CONTROL BAR (screen only)
+    ============================================= */
+    .control-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 999;
+      background: #1a1f2e;
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    .control-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #63b3ed, #9f7aea);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .control-hint { font-size: 0.78rem; color: #64748b; margin-left: 12px; }
+    .control-actions { display: flex; gap: 10px; }
+    .btn-back {
+      background: transparent; color: #94a3b8; border: 1px solid #334155;
+      font-size: 0.82rem; font-weight: 600; padding: 9px 16px; border-radius: 7px;
+      cursor: pointer; font-family: 'Inter', sans-serif; transition: color .2s;
+    }
+    .btn-back:hover { color: #fff; border-color: #64748b; }
+    .btn-print {
+      background: linear-gradient(135deg, #2563eb, #7c3aed); color: #fff;
+      border: none; font-size: 0.82rem; font-weight: 600; padding: 9px 18px;
+      border-radius: 7px; cursor: pointer; font-family: 'Inter', sans-serif;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .btn-print:hover { opacity: 0.88; }
+
+    /* PRINT TIP */
+    .print-tip {
+      background: #1e3a5f; color: #93c5fd; font-size: 0.75rem;
+      padding: 8px 32px; border-top: 1px solid rgba(99,179,237,0.2);
+      position: fixed; top: 49px; left: 0; right: 0; z-index: 998;
+    }
+    .print-tip strong { color: #63b3ed; }
+
+    /* =============================================
+       PAPER WRAPPER (screen only)
+    ============================================= */
+    .paper-wrapper {
+      padding: 110px 32px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* =============================================
+       PAGE — A4 PORTRAIT IN MM
+       mm units render accurately on screen in
+       modern browsers (Chrome, Firefox, Safari)
+       and translate correctly to print as-is.
+    ============================================= */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+      /* Print color hint (backgrounds must render) */
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      /* Screen aesthetics */
+      box-shadow: 0 8px 48px rgba(0,0,0,0.22);
+      border-radius: 3px;
+    }
+
+    /* =============================================
+       PAGE 1 LAYOUT — two-column
+    ============================================= */
+    .p1-layout {
+      display: grid;
+      grid-template-columns: 64mm 1fr;
+      height: 297mm;
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      background: var(--sidebar-bg);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 26px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      overflow: hidden;
+    }
+    .sidebar-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%; object-fit: cover;
+      border: 2.5px solid #2563eb;
+      display: block; margin-bottom: 2px;
+      flex-shrink: 0;
+    }
+    .sidebar-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14pt; font-weight: 800;
+      line-height: 1.2; letter-spacing: -0.02em; color: #fff;
+    }
+    .sidebar-role {
+      font-size: 8pt; font-weight: 600;
+      color: #93c5fd; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-top: 3px;
+    }
+    .sidebar-divider {
+      width: 28px; height: 2px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-radius: 2px; margin: 2px 0 0;
+    }
+    .sb-title {
+      font-size: 7.5pt; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: #60a5fa; margin-bottom: 7px;
+    }
+
+    /* Contact */
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .contact-list li { display: flex; align-items: flex-start; gap: 6px; }
+    .contact-list li a {
+      font-size: 8pt; color: #cbd5e1; line-height: 1.5; word-break: break-all;
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .contact-list li a:hover { color: #93c5fd; text-decoration: underline; }
+    .contact-list li svg { flex-shrink: 0; margin-top: 2px; color: #60a5fa; }
+
+    /* Skills */
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+    .skill-tag {
+      font-size: 7pt; font-weight: 600;
+      background: rgba(37,99,235,0.2);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      border: 1px solid rgba(96,165,250,0.3);
+      color: #93c5fd; padding: 2px 7px; border-radius: 100px;
+    }
+
+    /* ── BODY ── */
+    .body-content {
+      padding: 26px 22px;
+      display: flex; flex-direction: column; gap: 18px;
+      overflow: hidden;
+    }
+    .body-tagline {
+      font-family: 'Space Grotesk', sans-serif; font-size: 8pt;
+      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: 5px;
+    }
+    .body-desc { font-size: 9pt; color: var(--ink-mid); line-height: 1.7; }
+
+    /* Section title */
+    .cv-title {
+      font-family: 'Space Grotesk', sans-serif; font-size: 8.5pt;
+      font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); display: flex; align-items: center; gap: 7px;
+      margin-bottom: 10px;
+    }
+    .cv-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Experience */
+    .exp-item { margin-bottom: 10px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .exp-role { font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
+    .exp-period { font-size: 7.5pt; font-weight: 600; color: var(--accent); }
+    .exp-company { font-size: 8.5pt; font-weight: 500; color: var(--accent-2); margin-bottom: 3px; }
+    .exp-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.65; }
+
+    /* Education */
+    .edu-item { margin-bottom: 10px; }
+    .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .edu-degree { font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
+    .edu-period { font-size: 7.5pt; font-weight: 600; color: var(--accent); }
+    .edu-inst { font-size: 8.5pt; font-weight: 500; color: var(--accent-2); margin-bottom: 3px; }
+    .edu-gpa { font-size: 8pt; font-weight: 600; color: #16a34a; margin-bottom: 4px; }
+    .edu-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.65; margin-bottom: 5px; }
+    .edu-achievements { list-style: none; display: flex; flex-direction: column; gap: 3px; }
+    .edu-achievements li { font-size: 7.5pt; color: var(--ink-mid); padding-left: 12px; position: relative; }
+    .edu-achievements li::before { content: '★'; position: absolute; left: 0; color: var(--accent); font-size: 6.5pt; top: 1px; }
+
+    /* =============================================
+       PAGE 2+ — Projects
+    ============================================= */
+    .page-projects { padding: 20px 22px; }
+
+    .proj-page-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 8px; border-bottom: 1.5px solid var(--border); margin-bottom: 10px;
+      flex-shrink: 0;
+    }
+    .proj-page-title {
+      font-family: 'Space Grotesk', sans-serif; font-size: 11pt; font-weight: 800;
+      letter-spacing: -0.01em; color: var(--ink-darkest);
+    }
+    .proj-page-sub { font-size: 8pt; color: var(--ink-faint); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .project-block {
+      border: 1px solid var(--border); border-radius: 7px;
+      overflow: hidden; display: flex; flex-direction: column;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .pb-accent {
+      height: 2.5px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      flex-shrink: 0;
+    }
+    .pb-body { padding: 10px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+    .pb-title { font-family: 'Space Grotesk', sans-serif; font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
+    .pb-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.55; }
+    .pb-stack { font-size: 7pt; color: var(--ink-faint); font-style: italic; }
+    .pb-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 6px; }
+    .pb-tag {
+      font-size: 7pt; font-weight: 600;
+      background: #eff6ff; color: #1d4ed8;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      border: 1px solid #bfdbfe; padding: 2px 7px; border-radius: 100px;
+    }
+
+    .proj-page-footer {
+      margin-top: 10px; padding-top: 8px;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between;
+    }
+    .proj-page-footer span { font-size: 7.5pt; color: var(--ink-faint); }
+
+    /* =============================================
+       PRINT RULES
+    ============================================= */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        background: transparent !important;
+        width: 210mm;
+        height: 297mm;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      .control-bar,
+      .print-tip { display: none !important; }
+
+      .paper-wrapper {
+        padding: 0 !important;
+        gap: 0 !important;
+        display: block !important;
+      }
+
+      .page {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 210mm !important;
+        height: 297mm !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        page-break-after: always;
+        break-after: page;
+      }
+
+      .page:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CONTROL BAR -->
+  <div class="control-bar">
+    <div style="display:flex; align-items:center;">
+      <span class="control-logo">KA. Portfolio PDF</span>
+      <span class="control-hint">Preview sebelum print</span>
+    </div>
+    <div class="control-actions">
+      <button class="btn-back" onclick="window.location.href='index.html'">← Back to Site</button>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Save as PDF
+      </button>
+    </div>
+  </div>
+
+  <div class="paper-wrapper" id="paper-wrapper"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script>
+    const stripHtml = (html) => {
+      const d = document.createElement('div');
+      d.innerHTML = html;
+      return d.textContent || '';
+    };
+
+    const extractStack = (ld) => {
+      if (!ld) return '';
+      const m = ld.match(/<h4>Technical Stack:<\/h4>\s*<p>(.*?)<\/p>/s);
+      return m ? stripHtml(m[1]).trim() : '';
+    };
+
+    const ICONS = {
+      mail:     `<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>`,
+      github:   `<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>`,
+      linkedin: `<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+      instagram:`<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+      globe:    `<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+      edu:      `<svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>`,
+    };
+
+    // ============================================================
+    // PAGE 1
+    // ============================================================
+    const buildPage1 = () => {
+      const { name, heroSubtitle, cvDescription, heroDescription, profilePictureUrl, email, socials, skills, experience, education, careerStartYear } = config;
+
+      // Dynamic years of experience
+      const yearsExp = new Date().getFullYear() - (careerStartYear || 2022);
+      const description = (cvDescription || heroDescription).replace('{years}', yearsExp);
+
+      // Contacts — explicit link + label
+      const contacts = [
+        { icon: ICONS.mail,      href: `mailto:${email}`,     text: email },
+        { icon: ICONS.github,    href: socials.github,         text: 'github.com/kanam129' },
+        { icon: ICONS.linkedin,  href: socials.linkedin,       text: 'linkedin.com/in/k-anam' },
+        { icon: ICONS.instagram, href: socials.instagram,      text: '@a_im88' },
+        { icon: ICONS.globe,     href: socials.website,        text: 'kanam129.github.io/my-portofolio' },
+      ].filter(c => c.href);
+
+      const contactHTML = contacts.map(c =>
+        `<li>${c.icon}<a href="${c.href}" target="_blank" rel="noopener">${c.text}</a></li>`
+      ).join('');
+      const skillsHTML = skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+
+      // Experience
+      const expHTML = (experience || []).map(j => `
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-role">${j.role}</span>
+            <span class="exp-period">${j.period}</span>
+          </div>
+          <div class="exp-company">${j.company}</div>
+          <p class="exp-desc">${j.description}</p>
+        </div>
+      `).join('');
+
+      // Education
+      const eduHTML = (education || []).map(e => `
+        <div class="edu-item">
+          <div class="edu-header">
+            <span class="edu-degree">${e.degree} — ${e.level}</span>
+            <span class="edu-period">${e.period}</span>
+          </div>
+          <div class="edu-inst">${e.institution}</div>
+          <div class="edu-gpa">GPA: ${e.gpa} / 4.00</div>
+          <p class="edu-desc">${e.description}</p>
+          ${e.achievements && e.achievements.length ? `
+            <ul class="edu-achievements">
+              ${e.achievements.map(a => `<li>${a}</li>`).join('')}
+            </ul>
+          ` : ''}
+        </div>
+      `).join('');
+
+      return `
+        <div class="page">
+          <div class="p1-layout">
+
+            <aside class="sidebar">
+              <div>
+                <img src="${profilePictureUrl}" alt="Profile" class="sidebar-avatar" onerror="this.style.display='none'">
+                <p class="sidebar-name">${name}</p>
+                <p class="sidebar-role">${heroSubtitle}</p>
+                <div class="sidebar-divider"></div>
+              </div>
+              <div>
+                <p class="sb-title">Contact</p>
+                <ul class="contact-list">${contactHTML}</ul>
+              </div>
+              <div>
+                <p class="sb-title">Tech Skills</p>
+                <div class="skill-tags">${skillsHTML}</div>
+              </div>
+            </aside>
+
+            <main class="body-content">
+              <div>
+                <p class="body-tagline">Software Engineer · AI Engineer</p>
+                <p class="body-desc">${description}</p>
+              </div>
+
+              ${expHTML ? `
+                <div>
+                  <h2 class="cv-title">Work Experience</h2>
+                  ${expHTML}
+                </div>
+              ` : ''}
+
+              ${eduHTML ? `
+                <div>
+                  <h2 class="cv-title">Education</h2>
+                  ${eduHTML}
+                </div>
+              ` : ''}
+            </main>
+
+          </div>
+        </div>
+      `;
+    };
+
+    // ============================================================
+    // PROJECT PAGES — 8 per page
+    // ============================================================
+    const buildProjectPages = () => {
+      const { name, projects: all } = config;
+      const PER_PAGE = 8;
+      const pages = [];
+      const totalPages = Math.ceil(all.length / PER_PAGE) + 1;
+
+      for (let i = 0; i < all.length; i += PER_PAGE) {
+        const chunk = all.slice(i, i + PER_PAGE);
+        const pageNum = Math.floor(i / PER_PAGE) + 2;
+
+        const blocksHTML = chunk.map(p => {
+          const stack = extractStack(p.longDescription);
+          const tagsHTML = p.tags.map(t => `<span class="pb-tag">${t}</span>`).join('');
+          return `
+            <div class="project-block">
+              <div class="pb-accent"></div>
+              <div class="pb-body">
+                <p class="pb-title">${p.title}</p>
+                <p class="pb-desc">${p.description}</p>
+                ${stack ? `<p class="pb-stack">${stack}</p>` : ''}
+                <div class="pb-tags">${tagsHTML}</div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        pages.push(`
+          <div class="page">
+            <div class="page-projects">
+              <div class="proj-page-header">
+                <span class="proj-page-title">Projects Portfolio</span>
+                <span class="proj-page-sub">${name} &mdash; Page ${pageNum} of ${totalPages}</span>
+              </div>
+              <div class="projects-grid">${blocksHTML}</div>
+              <div class="proj-page-footer">
+                <span>Page ${pageNum} of ${totalPages}</span>
+                <span>${name} &bull; ${config.email}</span>
+              </div>
+            </div>
+          </div>
+        `);
+      }
+
+      return pages.join('');
+    };
+
+    // ============================================================
+    // RENDER
+    // ============================================================
+    const wrapper = document.getElementById('paper-wrapper');
+    if (typeof config !== 'undefined') {
+      wrapper.innerHTML = buildPage1() + buildProjectPages();
+    } else {
+      wrapper.innerHTML = '<p style="color:red;padding:40px;">Error: config.js tidak ditemukan.</p>';
+    }
+  </script>
+</body>
+</html>
