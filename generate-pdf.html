@@ -375,11 +375,11 @@
 
       // Contacts — explicit link + label
       const contacts = [
+        { icon: ICONS.globe,     href: socials.website,        text: 'kanam129.github.io/my-portofolio' },
+        { icon: ICONS.linkedin,  href: socials.linkedin,       text: 'linkedin.com/in/k-anam' },
         { icon: ICONS.mail,      href: `mailto:${email}`,     text: email },
         { icon: ICONS.github,    href: socials.github,         text: 'github.com/kanam129' },
-        { icon: ICONS.linkedin,  href: socials.linkedin,       text: 'linkedin.com/in/k-anam' },
         { icon: ICONS.instagram, href: socials.instagram,      text: '@a_im88' },
-        { icon: ICONS.globe,     href: socials.website,        text: 'kanam129.github.io/my-portofolio' },
       ].filter(c => c.href);
 
       const contactHTML = contacts.map(c =>
