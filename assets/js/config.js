@@ -1,8 +1,8 @@
 const config = {
     name: "Khoirul Anam",
-    heroSubtitle: "Software Engineer, AI Engineer",
+    heroSubtitle: "Software Engineer",
     heroDescription: "I'm a software engineer with experience in full-stack development and a deep interest in artificial intelligence. Passionate about solving complex problems and turning ideas into reality through technology.",
-    cvDescription: "A results-driven Software Engineer & AI Engineer with over {years} years of professional experience delivering end-to-end solutions across web and mobile platforms. Specializing in React Native, Next.js, Node.js, and AI integration using LangChain, MCP Server, and agentic AI pipelines — consistently translating complex business requirements into clean, maintainable, and high-impact software. Committed to continuous learning and building products that create real, measurable value.",
+    cvDescription: "A results-driven Software Engineer with over {years} years of professional experience delivering end-to-end solutions across web and mobile platforms. Specializing in React Native, Next.js, Node.js, and AI integration using LangChain, MCP Server, and agentic AI pipelines — consistently translating complex business requirements into clean, maintainable, and high-impact software. Committed to continuous learning and building products that create real, measurable value.",
     careerStartYear: 2022,
     profilePictureUrl: "assets/images/profile.jpeg",
     email: "anamskansamal@gmail.com",
