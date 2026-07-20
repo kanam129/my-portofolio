@@ -11,7 +11,7 @@ const config = {
         linkedin: "https://www.linkedin.com/in/k-anam/",
         instagram: "https://www.instagram.com/a_im88/",
         facebook: "https://facebook.com/aimagination88",
-        website: "https://kanam129.github.io/my-portofolio/"
+        website: "https://kanam.web.id"
     },
     skills: [
         "JavaScript (ES6+)",
@@ -89,9 +89,9 @@ const config = {
             `,
             tags: ['React Native', 'Mobile', 'POS', 'Fullstack', 'MSME'],
             imageUrls: [
-                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_1.jpg',
-                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_2.jpg',
-                'https://kanam129.github.io/my-portofolio/assets/images/mpstore_3.jpg',
+                'https://kanam.web.id/assets/images/mpstore_1.jpg',
+                'https://kanam.web.id/assets/images/mpstore_2.jpg',
+                'https://kanam.web.id/assets/images/mpstore_3.jpg',
             ],
             liveUrl: 'http://mpstore.co.id/app',
             sourceUrl: '#'
@@ -120,7 +120,7 @@ const config = {
                 <p>Next.js 14, TypeScript, Tailwind CSS, Leaflet, next-auth, Cloudflare Workers (OpenNext / Wrangler)</p>
             `,
             tags: ['Next.js', 'TypeScript', 'E-commerce', 'Multi-tenant', 'AI Chatbot', 'Cloudflare Workers', 'Fullstack'],
-            imageUrls: ['https://kanam129.github.io/my-portofolio/assets/images/miniweb_1.jpg', 'https://kanam129.github.io/my-portofolio/assets/images/miniweb_2.jpg'],
+            imageUrls: ['https://kanam.web.id/assets/images/miniweb_1.jpg', 'https://kanam.web.id/assets/images/miniweb_2.jpg'],
             liveUrl: 'https://toko.mpstore.co.id/mpixcafe',
             sourceUrl: '#'
         },
@@ -240,9 +240,9 @@ const config = {
             `,
             tags: ['AI', 'ERPNext', 'Langflow', 'API', 'Fullstack'],
             imageUrls: [
-                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_1.png',
-                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_2.jpeg',
-                'https://kanam129.github.io/my-portofolio/assets/images/erpnext_3.jpeg',
+                'https://kanam.web.id/assets/images/erpnext_1.png',
+                'https://kanam.web.id/assets/images/erpnext_2.jpeg',
+                'https://kanam.web.id/assets/images/erpnext_3.jpeg',
             ],
             liveUrl: '#',
             sourceUrl: '#'
@@ -332,8 +332,8 @@ const config = {
             `,
             tags: ['React Native', 'Mobile', 'Frontend', 'Legal Tech', 'Chat'],
             imageUrls: [
-                'https://kanam129.github.io/my-portofolio/assets/images/solvin_1.jpg',
-                'https://kanam129.github.io/my-portofolio/assets/images/solvin_2.jpg',
+                'https://kanam.web.id/assets/images/solvin_1.jpg',
+                'https://kanam.web.id/assets/images/solvin_2.jpg',
             ],
             liveUrl: '#',
             sourceUrl: '#'

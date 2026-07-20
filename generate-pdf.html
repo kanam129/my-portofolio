@@ -14,19 +14,19 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --ink-darkest: #0f1117;
-      --ink-mid:     #374151;
-      --ink-light:   #6b7280;
-      --ink-faint:   #9ca3af;
-      --accent:      #2563eb;
-      --border:      #e2e8f0;
-      --sidebar-bg:  #0f1117;
+      --ink:        #111827;
+      --ink-mid:    #374151;
+      --ink-light:  #6b7280;
+      --ink-faint:  #9ca3af;
+      --border:     #e5e7eb;
+      --border-mid: #d1d5db;
+      --page-bg:    #ffffff;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       -webkit-font-smoothing: antialiased;
-      background: #d1d5db;
+      background: #f3f4f6;
     }
 
     /* =============================================
@@ -45,9 +45,9 @@
     }
     .control-logo {
       font-family: 'Outfit', sans-serif;
-      font-weight: 800;
+      font-weight: 700;
       font-size: 1rem;
-      color: #3B82F6;
+      color: #fff;
       letter-spacing: -0.02em;
     }
     .control-hint { font-size: 0.78rem; color: #64748b; margin-left: 12px; }
@@ -59,20 +59,21 @@
     }
     .btn-back:hover { color: #fff; border-color: #64748b; }
     .btn-print {
-      background: #2563eb; color: #fff;
+      background: #111827; color: #fff;
       border: none; font-size: 0.82rem; font-weight: 600; padding: 9px 18px;
       border-radius: 7px; cursor: pointer; font-family: 'Inter', sans-serif;
       display: inline-flex; align-items: center; gap: 7px;
     }
-    .btn-print:hover { background: #1d4ed8; }
+    .btn-print:hover { background: #374151; }
 
     /* PRINT TIP */
     .print-tip {
-      background: #1e3a5f; color: #93c5fd; font-size: 0.75rem;
-      padding: 8px 32px; border-top: 1px solid rgba(99,179,237,0.2);
+      background: #f8fafc; color: #64748b; font-size: 0.75rem;
+      padding: 8px 32px; border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
       position: fixed; top: 49px; left: 0; right: 0; z-index: 998;
     }
-    .print-tip strong { color: #63b3ed; }
+    .print-tip strong { color: #374151; }
 
     /* =============================================
        PAPER WRAPPER (screen only)
@@ -86,185 +87,149 @@
     }
 
     /* =============================================
-       PAGE — A4 PORTRAIT IN MM
-       mm units render accurately on screen in
-       modern browsers (Chrome, Firefox, Safari)
-       and translate correctly to print as-is.
+       PAGE — A4 PORTRAIT
     ============================================= */
     .page {
       width: 210mm;
       height: 297mm;
       overflow: hidden;
-      background: #fff;
+      background: var(--page-bg);
       position: relative;
-      /* Print color hint (backgrounds must render) */
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
-      /* Screen aesthetics */
-      box-shadow: 0 8px 48px rgba(0,0,0,0.22);
-      border-radius: 3px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+      border-radius: 2px;
     }
 
     /* =============================================
-       PAGE 1 LAYOUT — two-column
+       PAGE 1 LAYOUT — single column (ATS-safe)
     ============================================= */
     .p1-layout {
-      display: grid;
-      grid-template-columns: 64mm 1fr;
-      height: 297mm;
-    }
-
-    /* ── SIDEBAR ── */
-    .sidebar {
-      background: var(--sidebar-bg);
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-      padding: 26px 18px;
+      padding: 28px 32px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
-      overflow: hidden;
+      gap: 0;
     }
-    .sidebar-avatar {
-      width: 72px; height: 72px;
-      border-radius: 50%; object-fit: cover;
-      border: 2.5px solid #2563eb;
-      display: block; margin-bottom: 2px;
+
+    /* Header block */
+    .cv-header { margin-bottom: 14px; }
+    .cv-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .cv-header-text { flex: 1; }
+    .cv-header-photo {
+      width: 60px;
+      height: 75px;
+      border-radius: 4px;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--border-mid);
       flex-shrink: 0;
+      display: block;
     }
-    .sidebar-name {
+    .cv-header-name {
       font-family: 'Outfit', sans-serif;
-      font-size: 14pt; font-weight: 800;
-      line-height: 1.2; letter-spacing: -0.02em; color: #fff;
+      font-size: 20pt; font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.1;
     }
-    .sidebar-role {
-      font-size: 8pt; font-weight: 600;
-      color: #93c5fd; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-top: 3px;
+    .cv-header-role {
+      font-size: 9pt; font-weight: 500;
+      color: var(--ink-light);
+      letter-spacing: 0.04em;
+      margin-top: 3px;
     }
-    .sidebar-divider {
-      width: 28px; height: 2px;
-      background: #2563eb;
-      border-radius: 2px; margin: 2px 0 0;
+    .cv-contact-row {
+      display: flex; flex-wrap: wrap; gap: 4px 16px;
+      margin-top: 8px;
     }
-    .sb-title {
-      font-size: 7.5pt; font-weight: 700;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: #60a5fa; margin-bottom: 7px;
-    }
-
-    /* Contact */
-    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-    .contact-list li { display: flex; align-items: flex-start; gap: 6px; }
-    .contact-list li a {
-      font-size: 8pt; color: #cbd5e1; line-height: 1.5; word-break: break-all;
+    .cv-contact-row a {
+      font-size: 8pt; color: var(--ink-mid);
       text-decoration: none;
-      transition: color .15s;
     }
-    .contact-list li a:hover { color: #93c5fd; text-decoration: underline; }
-    .contact-list li svg { flex-shrink: 0; margin-top: 2px; color: #60a5fa; }
+    .cv-contact-row a:hover { text-decoration: underline; }
+    .cv-contact-sep { font-size: 8pt; color: var(--ink-faint); }
 
-    /* Skills */
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-    .skill-tag {
-      font-size: 7pt; font-weight: 600;
-      background: rgba(37,99,235,0.2);
-      -webkit-print-color-adjust: exact;
-      print-color-adjust: exact;
-      border: 1px solid rgba(96,165,250,0.3);
-      color: #93c5fd; padding: 2px 7px; border-radius: 100px;
+    .cv-header-divider {
+      width: 100%; height: 1.5px;
+      background: var(--ink);
+      margin: 12px 0;
     }
 
-    /* ── BODY ── */
-    .body-content {
-      padding: 26px 22px;
-      display: flex; flex-direction: column; gap: 18px;
-      overflow: hidden;
-    }
-    .body-tagline {
-      font-family: 'Outfit', sans-serif; font-size: 8pt;
-      font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      color: #2563eb;
-      margin-bottom: 5px;
-    }
-    .body-desc { font-size: 9pt; color: var(--ink-mid); line-height: 1.7; }
+    /* Section */
+    .cv-section { margin-bottom: 14px; }
 
     /* Section title */
     .cv-title {
-      font-family: 'Outfit', sans-serif; font-size: 8.5pt;
+      font-family: 'Outfit', sans-serif; font-size: 8pt;
       font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--accent); display: flex; align-items: center; gap: 7px;
-      margin-bottom: 10px;
+      color: var(--ink); display: flex; align-items: center; gap: 8px;
+      margin-bottom: 8px;
     }
     .cv-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
+    /* Summary */
+    .cv-summary { font-size: 8.5pt; color: var(--ink-mid); line-height: 1.75; }
+
+    /* Skills — plain comma-separated, ATS reads this cleanly */
+    .cv-skills-text { font-size: 8pt; color: var(--ink-mid); line-height: 1.8; }
+
     /* Experience */
     .exp-item { margin-bottom: 10px; }
-    .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .exp-role { font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
-    .exp-period { font-size: 7.5pt; font-weight: 600; color: var(--accent); }
-    .exp-company { font-size: 8.5pt; font-weight: 500; color: #1d4ed8; margin-bottom: 3px; opacity: 0.75; }
-    .exp-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.65; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+    .exp-role { font-size: 9.5pt; font-weight: 700; color: var(--ink); }
+    .exp-period { font-size: 7.5pt; font-weight: 500; color: var(--ink-light); }
+    .exp-company { font-size: 8pt; font-weight: 500; color: var(--ink-mid); margin-bottom: 4px; }
+    .exp-desc { font-size: 7.5pt; color: var(--ink-mid); line-height: 1.65; }
 
     /* Education */
     .edu-item { margin-bottom: 10px; }
-    .edu-header { display: flex; justify-content: space-between; align-items: baseline; }
-    .edu-degree { font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
-    .edu-period { font-size: 7.5pt; font-weight: 600; color: var(--accent); }
-    .edu-inst { font-size: 8.5pt; font-weight: 500; color: #1d4ed8; margin-bottom: 3px; opacity: 0.75; }
-    .edu-gpa { font-size: 8pt; font-weight: 600; color: #16a34a; margin-bottom: 4px; }
-    .edu-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.65; margin-bottom: 5px; }
-    .edu-achievements { list-style: none; display: flex; flex-direction: column; gap: 3px; }
-    .edu-achievements li { font-size: 7.5pt; color: var(--ink-mid); padding-left: 12px; position: relative; }
-    .edu-achievements li::before { content: '★'; position: absolute; left: 0; color: var(--accent); font-size: 6.5pt; top: 1px; }
+    .edu-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+    .edu-degree { font-size: 9.5pt; font-weight: 700; color: var(--ink); }
+    .edu-period { font-size: 7.5pt; font-weight: 500; color: var(--ink-light); }
+    .edu-inst { font-size: 8pt; font-weight: 500; color: var(--ink-mid); margin-bottom: 4px; }
+    .edu-gpa { font-size: 7.5pt; color: var(--ink-mid); margin-bottom: 3px; }
+    .edu-desc { font-size: 7.5pt; color: var(--ink-mid); line-height: 1.65; }
+    .edu-achievements { list-style: none; display: flex; flex-direction: column; gap: 3px; margin-top: 3px; }
+    .edu-achievements li { font-size: 7pt; color: var(--ink-mid); padding-left: 12px; position: relative; }
+    .edu-achievements li::before { content: '–'; position: absolute; left: 0; color: var(--ink-faint); }
 
     /* =============================================
-       PAGE 2+ — Projects
+       PAGE 2+ — Projects (single column, ATS-safe)
     ============================================= */
-    .page-projects { padding: 20px 22px; }
+    .page-projects { padding: 28px 32px; }
 
     .proj-page-header {
       display: flex; justify-content: space-between; align-items: baseline;
-      padding-bottom: 8px; border-bottom: 1.5px solid var(--border); margin-bottom: 10px;
+      padding-bottom: 8px; border-bottom: 1.5px solid var(--ink); margin-bottom: 14px;
       flex-shrink: 0;
     }
     .proj-page-title {
       font-family: 'Outfit', sans-serif; font-size: 11pt; font-weight: 800;
-      letter-spacing: -0.01em; color: var(--ink-darkest);
+      letter-spacing: -0.01em; color: var(--ink);
     }
     .proj-page-sub { font-size: 8pt; color: var(--ink-faint); }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+    /* Single column project list — ATS reads line by line */
+    .projects-list { display: flex; flex-direction: column; gap: 10px; }
 
     .project-block {
-      border: 1px solid var(--border); border-radius: 7px;
-      overflow: hidden; display: flex; flex-direction: column;
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .pb-accent {
-      height: 2.5px;
-      background: #2563eb;
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      flex-shrink: 0;
-    }
-    .pb-body { padding: 10px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
-    .pb-title { font-family: 'Outfit', sans-serif; font-size: 10pt; font-weight: 700; color: var(--ink-darkest); }
-    .pb-desc { font-size: 8pt; color: var(--ink-mid); line-height: 1.55; }
-    .pb-stack { font-size: 7pt; color: var(--ink-faint); font-style: italic; }
-    .pb-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 6px; }
-    .pb-tag {
-      font-size: 7pt; font-weight: 600;
-      background: #eff6ff; color: #1d4ed8;
-      -webkit-print-color-adjust: exact; print-color-adjust: exact;
-      border: 1px solid #bfdbfe; padding: 2px 7px; border-radius: 100px;
-    }
+    .project-block:last-child { border-bottom: none; }
+    .pb-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 4px; }
+    .pb-title { font-family: 'Outfit', sans-serif; font-size: 9.5pt; font-weight: 700; color: var(--ink); }
+    .pb-stack-inline { font-size: 7.5pt; color: var(--ink-faint); font-style: italic; }
+    .pb-desc { font-size: 7.5pt; color: var(--ink-mid); line-height: 1.6; margin-top: 3px; }
+    .pb-tags-text { font-size: 7pt; color: var(--ink-faint); margin-top: 3px; }
 
     .proj-page-footer {
-      margin-top: 10px; padding-top: 8px;
+      margin-top: 12px; padding-top: 8px;
       border-top: 1px solid var(--border);
       display: flex; justify-content: space-between;
     }
@@ -362,28 +327,29 @@
     };
 
     // ============================================================
-    // PAGE 1
+    // PAGE 1 — ATS-friendly single column
     // ============================================================
     const buildPage1 = () => {
       const { name, heroSubtitle, cvDescription, heroDescription, profilePictureUrl, email, socials, skills, experience, education, careerStartYear } = config;
 
-      // Dynamic years of experience
       const yearsExp = new Date().getFullYear() - (careerStartYear || 2022);
       const description = (cvDescription || heroDescription).replace('{years}', yearsExp);
 
-      // Contacts — explicit link + label
-      const contacts = [
-        { icon: ICONS.globe,     href: socials.website,        text: 'kanam129.github.io/my-portofolio' },
-        { icon: ICONS.linkedin,  href: socials.linkedin,       text: 'linkedin.com/in/k-anam' },
-        { icon: ICONS.mail,      href: `mailto:${email}`,     text: email },
-        { icon: ICONS.github,    href: socials.github,         text: 'github.com/kanam129' },
-        { icon: ICONS.instagram, href: socials.instagram,      text: '@a_im88' },
-      ].filter(c => c.href);
+      // Contact row — plain text links, no SVG (ATS reads text, not SVG)
+      const contactItems = [
+        { href: socials.website,                   text: 'kanam.web.id' },
+        { href: `mailto:${email}`,                 text: email },
+        { href: socials.linkedin,                  text: 'linkedin.com/in/k-anam' },
+        { href: socials.github,                    text: 'github.com/kanam129' },
+      ].filter(c => c.href && c.text);
 
-      const contactHTML = contacts.map(c =>
-        `<li>${c.icon}<a href="${c.href}" target="_blank" rel="noopener">${c.text}</a></li>`
-      ).join('');
-      const skillsHTML = skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+      const contactHTML = contactItems.map((c, i) => {
+        const sep = i < contactItems.length - 1 ? '<span class="cv-contact-sep">|</span>' : '';
+        return `<a href="${c.href}" target="_blank" rel="noopener">${c.text}</a>${sep}`;
+      }).join(' ');
+
+      // Skills — comma-separated plain text (ATS keyword-scannable)
+      const skillsText = skills.join(', ');
 
       // Experience
       const expHTML = (experience || []).map(j => `
@@ -401,7 +367,7 @@
       const eduHTML = (education || []).map(e => `
         <div class="edu-item">
           <div class="edu-header">
-            <span class="edu-degree">${e.degree} — ${e.level}</span>
+            <span class="edu-degree">${e.degree} &mdash; ${e.level}</span>
             <span class="edu-period">${e.period}</span>
           </div>
           <div class="edu-inst">${e.institution}</div>
@@ -419,43 +385,46 @@
         <div class="page">
           <div class="p1-layout">
 
-            <aside class="sidebar">
-              <div>
-                <img src="${profilePictureUrl}" alt="Profile" class="sidebar-avatar" onerror="this.style.display='none'">
-                <p class="sidebar-name">${name}</p>
-                <p class="sidebar-role">${heroSubtitle}</p>
-                <div class="sidebar-divider"></div>
-              </div>
-              <div>
-                <p class="sb-title">Contact</p>
-                <ul class="contact-list">${contactHTML}</ul>
-              </div>
-              <div>
-                <p class="sb-title">Tech Skills</p>
-                <div class="skill-tags">${skillsHTML}</div>
-              </div>
-            </aside>
-
-            <main class="body-content">
-              <div>
-                <p class="body-tagline">Full-Stack & AI Engineer</p>
-                <p class="body-desc">${description}</p>
-              </div>
-
-              ${expHTML ? `
-                <div>
-                  <h2 class="cv-title">Work Experience</h2>
-                  ${expHTML}
+            <!-- HEADER -->
+            <div class="cv-header">
+              <div class="cv-header-row">
+                <div class="cv-header-text">
+                  <p class="cv-header-name">${name}</p>
+                  <p class="cv-header-role">${heroSubtitle}</p>
+                  <div class="cv-contact-row">${contactHTML}</div>
                 </div>
-              ` : ''}
+                <img src="${profilePictureUrl}" alt="${name}" class="cv-header-photo" onerror="this.style.display='none'">
+              </div>
+              <div class="cv-header-divider"></div>
+            </div>
 
-              ${eduHTML ? `
-                <div>
-                  <h2 class="cv-title">Education</h2>
-                  ${eduHTML}
-                </div>
-              ` : ''}
-            </main>
+            <!-- SUMMARY -->
+            <div class="cv-section">
+              <h2 class="cv-title">Summary</h2>
+              <p class="cv-summary">${description}</p>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="cv-section">
+              <h2 class="cv-title">Technical Skills</h2>
+              <p class="cv-skills-text">${skillsText}</p>
+            </div>
+
+            <!-- EXPERIENCE -->
+            ${expHTML ? `
+              <div class="cv-section">
+                <h2 class="cv-title">Work Experience</h2>
+                ${expHTML}
+              </div>
+            ` : ''}
+
+            <!-- EDUCATION -->
+            ${eduHTML ? `
+              <div class="cv-section">
+                <h2 class="cv-title">Education</h2>
+                ${eduHTML}
+              </div>
+            ` : ''}
 
           </div>
         </div>
@@ -463,11 +432,11 @@
     };
 
     // ============================================================
-    // PROJECT PAGES — 8 per page
+    // PROJECT PAGES — single-column list, ATS-safe
     // ============================================================
     const buildProjectPages = () => {
       const { name, projects: all } = config;
-      const PER_PAGE = 8;
+      const PER_PAGE = 10;
       const pages = [];
       const totalPages = Math.ceil(all.length / PER_PAGE) + 1;
 
@@ -477,16 +446,15 @@
 
         const blocksHTML = chunk.map(p => {
           const stack = extractStack(p.longDescription);
-          const tagsHTML = p.tags.map(t => `<span class="pb-tag">${t}</span>`).join('');
+          const tagsText = p.tags.join(', ');
           return `
             <div class="project-block">
-              <div class="pb-accent"></div>
-              <div class="pb-body">
-                <p class="pb-title">${p.title}</p>
-                <p class="pb-desc">${p.description}</p>
-                ${stack ? `<p class="pb-stack">${stack}</p>` : ''}
-                <div class="pb-tags">${tagsHTML}</div>
+              <div class="pb-header">
+                <span class="pb-title">${p.title}</span>
+                ${stack ? `<span class="pb-stack-inline">${stack}</span>` : ''}
               </div>
+              <p class="pb-desc">${p.description}</p>
+              <p class="pb-tags-text">Tags: ${tagsText}</p>
             </div>
           `;
         }).join('');
@@ -495,10 +463,10 @@
           <div class="page">
             <div class="page-projects">
               <div class="proj-page-header">
-                <span class="proj-page-title">Projects Portfolio</span>
+                <span class="proj-page-title">Projects</span>
                 <span class="proj-page-sub">${name} &mdash; Page ${pageNum} of ${totalPages}</span>
               </div>
-              <div class="projects-grid">${blocksHTML}</div>
+              <div class="projects-list">${blocksHTML}</div>
               <div class="proj-page-footer">
                 <span>Page ${pageNum} of ${totalPages}</span>
                 <span>${name} &bull; ${config.email}</span>
