@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!project) {
     content.innerHTML = `
       <div style="text-align:center; padding: 80px 0;">
-        <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800; color:var(--text-primary); margin-bottom:16px;">Project Not Found</h1>
+        <h1 style="font-family:'Outfit',sans-serif; font-size:2.5rem; font-weight:800; color:var(--text-primary); margin-bottom:16px;">Project Not Found</h1>
         <p style="color:var(--text-secondary); margin-bottom:40px;">The project you're looking for doesn't exist.</p>
         <a href="projects.html" class="btn-secondary">← Back to Projects</a>
       </div>

@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // LOGO
   // ============================================================
   const logo = document.getElementById('logo');
-  if (logo) logo.textContent = 'KA.';
+  if (logo) logo.textContent = 'k.anam';
 
   // ============================================================
   // SOCIAL LINKS HELPER
@@ -135,14 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const parts = config.name.split(' ');
       const first = parts.slice(0, -1).join(' ');
       const last = parts[parts.length - 1];
-      heroName.innerHTML = `Hi, I'm ${first} <span class="gradient-text">${last}</span>`;
+      // Editorial: no 'Hi, I'm' — name stands on its own
+      heroName.innerHTML = `${first} <span class="gradient-text">${last}</span>`;
     }
 
-    const heroSubtitle = document.getElementById('hero-subtitle');
-    if (heroSubtitle) heroSubtitle.textContent = config.heroSubtitle;
-
     const heroDesc = document.getElementById('hero-description');
-    if (heroDesc) heroDesc.textContent = config.heroDescription;
+    if (heroDesc) {
+      // Cap at 20 words for hero viewport discipline
+      const words = config.heroDescription.split(' ');
+      const capped = words.slice(0, 20).join(' ') + (words.length > 20 ? '.' : '');
+      heroDesc.textContent = capped;
+    }
 
     const profilePic = document.getElementById('profile-picture');
     if (profilePic) profilePic.src = config.profilePictureUrl;
