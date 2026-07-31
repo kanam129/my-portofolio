@@ -46,7 +46,7 @@ const config = {
         {
             company: "Solvin",
             role: "Front End Developer",
-            period: "Jun 2023 - Present",
+            period: "Jun 2023 - 2025",
             description: "Shipped a dual cross-platform legal consultation app from zero to production on Android and iOS, enabling real-time client–lawyer communication, by building both the user and lawyer interfaces using React Native and Firebase."
         }
     ],
