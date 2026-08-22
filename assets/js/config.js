@@ -2,7 +2,7 @@ const config = {
     name: "Khoirul Anam",
     heroSubtitle: "Full-Stack & AI Engineer",
     heroDescription: "Shipping production software for Indonesian MSMEs — POS systems, AI e-commerce, and multi-tenant platforms — for 4+ years.",
-    cvDescription: "Full-Stack & AI Engineer with {years}+ years delivering end-to-end production systems across web and mobile. Built a POS platform used by thousands of MSME merchants, an AI-powered multi-tenant e-commerce deployed on Cloudflare edge, and a 16-tool stock analysis MCP Server for IDX markets — using React Native, Next.js, Node.js, Rust, and LangChain. Focused on systems that ship fast, scale cleanly, and create measurable business value.",
+    cvDescription: "Full-Stack & AI Engineer with {years}+ years delivering end-to-end production systems across web and mobile. Built POS platforms used by thousands of MSME merchants, AI-driven Model Context Protocol (MCP) servers deployed on Cloudflare edge for store & catalog management, and stock analysis engines — using TypeScript, React Native, Next.js, Node.js, Rust, and LangChain. Focused on systems that ship fast, scale cleanly, and create measurable business value.",
     careerStartYear: 2022,
     profilePictureUrl: "assets/images/profile.jpeg",
     email: "anamskansamal@gmail.com",
@@ -52,7 +52,7 @@ const config = {
     ],
     education: [
         {
-            degree: "Sistem Informasi",
+            degree: "Information Systems",
             institution: "University of Trunojoyo Madura",
             level: "S1",
             period: "08/2019 - 08/2025",
@@ -67,6 +67,37 @@ const config = {
         }
     ],
     projects: [
+        {
+            id: 'mpix-store-mcp',
+            title: 'MPIX Store MCP Server — AI POS & Catalog Manager',
+            description: 'Enabled conversational store & cashier management for merchants by building an MCP (Model Context Protocol) server deployed on Cloudflare Workers edge, letting users manage online catalogs, update products, and toggle store operations directly via natural language AI prompts.',
+            longDescription: `
+                <p>Enabled direct conversational control of e-commerce catalogs and cashier operations by developing an edge-ready Model Context Protocol (MCP) server in TypeScript, allowing merchants to manage product inventories, prices, operational hours, and cashier profiles seamlessly through natural language prompts across MCP-compatible AI clients (Claude, Cursor, etc.).</p>
+                <p>Eliminated manual dashboard navigation for busy store owners by exposing a comprehensive suite of declarative MCP tools — covering full product CRUD (create, update, delete, stock & price adjustments), store status toggling (open/closed/maintenance), and active cashier shift configuration — executed via real-time JSON-RPC and SSE streams.</p>
+                <p>Ensured ultra-low latency and global scalability by architecting the server in TypeScript for deployment on Cloudflare Workers edge infrastructure, establishing a lightweight, secure bridge between conversational AI agents and store backend APIs.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Conversational store management via Model Context Protocol (MCP) integration</li>
+                    <li>Full product catalog CRUD (add products, edit descriptions/photos, update prices & variants, manage stock)</li>
+                    <li>Cashier profile & shift configuration (setting cashier profile, role, and terminal ID)</li>
+                    <li>Real-time store operating status control (open/close store & operational modes)</li>
+                    <li>Edge deployment architecture optimized for Cloudflare Workers</li>
+                    <li>Streamable HTTP / SSE (Server-Sent Events) & JSON-RPC communication</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>TypeScript, Model Context Protocol (MCP), Cloudflare Workers, Node.js, JSON-RPC, REST API, SSE</p>
+            `,
+            tags: ['TypeScript', 'Cloudflare Workers', 'MCP Server', 'AI Agent', 'POS', 'E-Commerce'],
+            imageUrls: [
+                'assets/images/mpix-mcp/1.png',
+                'assets/images/mpix-mcp/2.png',
+                'assets/images/mpix-mcp/3.png',
+            ],
+            liveUrl: 'https://mcp.mpix.ai/mcp',
+            sourceUrl: '#'
+        },
         {
             id: 'mpstore',
             title: 'MPStore App',
@@ -97,6 +128,103 @@ const config = {
             sourceUrl: '#'
         },
         {
+            id: 'garsindo-erp-dashboard',
+            title: 'Garsindo ERP Dashboard',
+            description: 'Built a comprehensive end-to-end ERP dashboard — covering Inventory, Sales, Purchasing, and Service Management — with real-time stock tracking and automated document generation using Next.js, TypeScript, and MySQL.',
+            longDescription: `
+                <p>Streamlined enterprise operations for a distribution and service company by architecting a custom full-stack ERP system built with Next.js, TypeScript, and MySQL — unifying Inventory, Sales, Purchasing, and Service Management into one seamless platform.</p>
+                <p>Delivered an integrated sales and purchasing cycle (Quotation → Order → Delivery/Receiving → Invoicing → Payment) with automated document generation, stock deduction, and account reconciliation.</p>
+                <p>Engineered a dedicated Service Management module to handle repair ticketing, sparepart allocation, unit diagnostic tracking, and warranty history — significantly improving technician turnaround time and service transparency for clients.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li><strong>Inventory Management:</strong> Multi-warehouse stock tracking, real-time stock cards, and low-stock alerts</li>
+                    <li><strong>Sales Module:</strong> End-to-end Quotation → Sales Order → Delivery Order (DO) → Sales Invoice → Account Receivables workflow</li>
+                    <li><strong>Purchasing Module:</strong> Purchase Order (PO) → Goods Receiving → Purchase Invoice → Account Payables management</li>
+                    <li><strong>Service Management:</strong> Repair/service ticketing, spare part allocation & cost estimates, technician work order tracking, and service billing</li>
+                    <li>Automated document generation (Invoices, POs, Delivery Orders, Service Work Orders) with printable templates</li>
+                    <li>Role-based access control & user activity audit trails</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Next.js, React, TypeScript, Tailwind CSS, Node.js, MySQL</p>
+            `,
+            tags: ['Next.js', 'TypeScript', 'Fullstack', 'ERP', 'MySQL', 'Tailwind CSS'],
+            imageUrls: [
+                'assets/images/garsindo/1.png',
+                'assets/images/garsindo/2.png',
+                'assets/images/garsindo/3.png',
+                'assets/images/garsindo/4.png',
+                'assets/images/garsindo/5.png',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'mpstore-payment-link',
+            title: 'MPStore Payment Link & Invoice',
+            description: 'Eliminated payment integration complexity for merchants by building a shareable invoice link system supporting QRIS, multi-bank Virtual Account, and Credit Card — with dynamic fee calculation and edge deployment on Cloudflare Workers.',
+            longDescription: `
+                <p>Eliminated payment friction for MPStore merchants by building a shareable invoice link system — customers open a link, review the invoice, and pay without installing any app — handling three integration modes (Standard, H2H, and Web) with separate encryption logic and status polling per mode, as the sole fullstack developer.</p>
+                <p>Prevented payment amount discrepancies by implementing dynamic admin fee calculation: reverse QRIS fee formula, flat credit card percentage, and real-time Virtual Account fee fetched from the payment provider API — ensuring the amount customers see before confirming is always accurate.</p>
+                <p>Maintained fast page load for all payment flows by deploying on Cloudflare Workers edge via OpenNext, with client-side QR code generation for payment proof — eliminating the server roundtrip at the final confirmation step.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Shareable invoice links with order ID encryption for enhanced security</li>
+                    <li>Multi-method payment: QRIS, multi-bank Virtual Accounts, and Credit Cards</li>
+                    <li>Dynamic admin fee calculator (reverse QRIS fee formula, flat CC rate, real-time VA fee)</li>
+                    <li>Three integration modes: Standard, Host-to-Host (H2H), and Web</li>
+                    <li>Automated real-time payment status polling</li>
+                    <li>Client-side QR code generation for digital payment confirmation</li>
+                    <li>Edge deployment via Cloudflare Workers (OpenNext / Wrangler)</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Next.js 15, TypeScript, Tailwind CSS, Cloudflare Workers, OpenNext, Wrangler, Axios, Moment.js</p>
+            `,
+            tags: ['Next.js', 'TypeScript', 'Cloudflare Workers', 'Fullstack', 'Payment'],
+            imageUrls: [
+                'assets/images/payment-link/1.jpeg',
+                'assets/images/payment-link/2.jpeg',
+                'assets/images/payment-link/3.jpeg',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'stock-analysis-mcp-server',
+            title: 'Stock Analysis MCP Server',
+            description: 'Built a 16-tool IDX stock analysis engine — covering technical indicators, fundamental screening, and real-time news — runnable as both a REST API and a native MCP Server for Claude Desktop, using Python and FastAPI.',
+            longDescription: `
+                <p>Enabled advanced market analysis for Indonesian stocks without paid API costs by building a dual-mode engine — REST API and native MCP Server — that integrates 15+ technical/fundamental filters and real-time news feeds directly into Claude Desktop.</p>
+                <p>Improved analytical accuracy by shipping version 3, which included bug fixes for Bollinger Bands, updated 2026 IDX constituent data, and the addition of 9 advanced market indicators (Stochastic, Ichimoku, VWAP, etc.), enabling professional-grade screening within an AI conversational interface.</p>
+                <p>Minimized infrastructure overhead by implementing in-memory caching for redundant API requests, ensuring fast performance for the 16 available analysis tools while leveraging real-time data from 9 Indonesian and global sources.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Dual-mode: REST API (FastAPI) + MCP Server (stdio) in a unified codebase</li>
+                    <li>16 analytical tools: fundamental screening, basic & advanced technical indicators, market news</li>
+                    <li>Advanced technical indicators: Stochastic, ATR, ADX, OBV, VWAP, Williams %R, CCI, Ichimoku Cloud, Golden/Death Cross</li>
+                    <li>IDX stock screening (LQ45/IDX30/IDX80/Sectoral) with 15+ fundamental & technical filters + 7 ready presets</li>
+                    <li>Real-time financial news via DuckDuckGo Search + 9 Indonesian & global RSS feeds (no API key required)</li>
+                    <li>In-memory caching layer for optimized API request performance</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Python, FastAPI, Uvicorn, MCP (Model Context Protocol), pandas, pandas-ta, NumPy, DuckDuckGo Search, feedparser</p>
+            `,
+            tags: ['Python', 'MCP Server', 'FastAPI', 'Stock Analysis', 'AI Tools'],
+            imageUrls: [
+                'assets/images/mcp-saham/1.png',
+                'assets/images/mcp-saham/2.png',
+                'assets/images/mcp-saham/3.png',
+                'assets/images/mcp-saham/4.png',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
             id: 'mpstore-miniweb',
             title: 'MPStore Miniweb',
             description: 'Enabled zero-config branded storefronts for every MPStore merchant by architecting a multi-tenant Next.js 14 platform with AI chat checkout, deployed globally on Cloudflare Workers edge.',
@@ -123,101 +251,6 @@ const config = {
             imageUrls: ['https://kanam.web.id/assets/images/miniweb_1.jpg', 'https://kanam.web.id/assets/images/miniweb_2.jpg'],
             liveUrl: 'https://toko.mpstore.co.id/mpixcafe',
             sourceUrl: '#'
-        },
-        {
-            id: 'stock-analysis-mcp-server',
-            title: 'Stock Analysis MCP Server',
-            description: 'Built a 16-tool IDX stock analysis engine — covering technical indicators, fundamental screening, and real-time news — runnable as both a REST API and a native MCP Server for Claude Desktop, using Python and FastAPI.',
-            longDescription: `
-                <p>Enabled advanced market analysis for Indonesian stocks without paid API costs by building a dual-mode engine — REST API and native MCP Server — that integrates 15+ technical/fundamental filters and real-time news feeds directly into Claude Desktop.</p>
-                <p>Improved analytical accuracy by shipping version 3, which included bug fixes for Bollinger Bands, updated 2026 IDX constituent data, and the addition of 9 advanced market indicators (Stochastic, Ichimoku, VWAP, etc.), enabling professional-grade screening within an AI conversational interface.</p>
-                <p>Minimized infrastructure overhead by implementing in-memory caching for redundant API requests, ensuring fast performance for the 16 available analysis tools while leveraging real-time data from 9 Indonesian and global sources.</p>
-                <br>
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Dual-mode: REST API (FastAPI) + MCP Server (stdio) dalam satu file</li>
-                    <li>16 tools: teknikal dasar & lanjutan, fundamental, screening, berita</li>
-                    <li>Indikator teknikal lanjutan: Stochastic, ATR, ADX, OBV, VWAP, Williams %R, CCI, Ichimoku Cloud, Golden/Death Cross</li>
-                    <li>Screening saham IDX (LQ45/IDX30/IDX80/Sektoral) dengan 15+ filter fundamental & teknikal + 7 preset siap pakai</li>
-                    <li>Berita ekonomi real-time via DuckDuckGo Search + 9 RSS feed Indonesia & global (tanpa API key)</li>
-                    <li>In-memory caching untuk efisiensi request API</li>
-                </ul>
-                <br>
-                <h4>Technical Stack:</h4>
-                <p>Python, FastAPI, Uvicorn, MCP (Model Context Protocol), pandas, pandas-ta, NumPy, DuckDuckGo Search, feedparser</p>
-            `,
-            tags: ['Python', 'MCP Server', 'FastAPI', 'Stock Analysis', 'AI Tools'],
-            imageUrls: [
-                'assets/images/mcp-saham/1.png',
-                'assets/images/mcp-saham/2.png',
-                'assets/images/mcp-saham/3.png',
-                'assets/images/mcp-saham/4.png',
-            ],
-            liveUrl: '#',
-            sourceUrl: '#',
-        },
-        {
-            id: 'garsindo-erp-dashboard',
-            title: 'Garsindo ERP Dashboard',
-            description: 'Cut manual sales cycle overhead by building a full internal ERP — Quotation to Payment in one connected flow — with real-time FIFO stock management and automated accounting, using AdminJS, Express.js, and PostgreSQL.',
-            longDescription: `
-                <p>Cut manual sales cycle overhead for a distribution company by architecting an integrated ERP flow (Quotation → Order → Delivery → Invoice → Payment) — using AdminJS, Sequelize ORM, and PostgreSQL — to automate document generation and stock validation as the sole fullstack developer.</p>
-                <p>Eliminated data fragmentation by replacing manual tracking with a unified source of truth, featuring deep customization including custom React components for item entry and per-module hooks for real-time FIFO stock movement and multi-warehouse management.</p>
-                <p>Automated accounting workflows by building a finance module that converts document stages into automated journal entries, drastically reducing reconciliation time compared to the previous manual bookkeeping method.</p>
-                <br>
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Alur penjualan lengkap: Quotation → Order → Delivery → Invoice → Payment</li>
-                    <li>Manajemen stok real-time dengan FIFO stock movement dan multi-warehouse</li>
-                    <li>Custom React components untuk input detail item, pajak, dan multi-dokumen selector</li>
-                    <li>Cetak dokumen (invoice & surat jalan) berbasis template HTML kustom</li>
-                    <li>Modul pembelian (Purchase Order, Receiving, Purchase Invoice, Payment)</li>
-                    <li>Modul akuntansi dengan Chart of Account dan pelacakan piutang/hutang</li>
-                </ul>
-                <br>
-                <h4>Technical Stack:</h4>
-                <p>AdminJS, React, TypeScript, Express.js, Sequelize ORM, PostgreSQL, Node.js</p>
-            `,
-            tags: ['AdminJS', 'TypeScript', 'Fullstack', 'ERP', 'Node.js', 'PostgreSQL'],
-            imageUrls: [
-                'assets/images/garsindo/1.jpeg',
-                'assets/images/garsindo/2.jpeg',
-                'assets/images/garsindo/3.jpeg',
-            ],
-            liveUrl: '#',
-            sourceUrl: '#',
-        },
-        {
-            id: 'mpstore-payment-link',
-            title: 'MPStore Payment Link & Invoice',
-            description: 'Eliminated payment integration complexity for merchants by building a shareable invoice link system supporting QRIS, multi-bank Virtual Account, and Credit Card — with dynamic fee calculation and edge deployment on Cloudflare Workers.',
-            longDescription: `
-                <p>Eliminated payment friction for MPStore merchants by building a shareable invoice link system — customers open a link, review the invoice, and pay without installing any app — handling three integration modes (Standard, H2H, and Web) with separate encryption logic and status polling per mode, as the sole fullstack developer.</p>
-                <p>Prevented payment amount discrepancies by implementing dynamic admin fee calculation: reverse QRIS fee formula, flat credit card percentage, and real-time Virtual Account fee fetched from the payment provider API — ensuring the amount customers see before confirming is always accurate.</p>
-                <p>Maintained fast page load for all payment flows by deploying on Cloudflare Workers edge via OpenNext, with client-side QR code generation for payment proof — eliminating the server roundtrip at the final confirmation step.</p>
-                <br>
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Shareable invoice link dengan enkripsi order ID untuk keamanan</li>
-                    <li>Multi-method payment: QRIS, Virtual Account (multi-bank), Kartu Kredit</li>
-                    <li>Dynamic admin fee calculator (reverse QRIS fee, flat CC rate, real-time VA fee)</li>
-                    <li>Tiga mode integrasi: Standard, H2H (Host-to-Host), dan Web</li>
-                    <li>Real-time payment status polling otomatis</li>
-                    <li>QR code generation untuk bukti pembayaran digital</li>
-                    <li>Edge deployment via Cloudflare Workers (OpenNext / Wrangler)</li>
-                </ul>
-                <br>
-                <h4>Technical Stack:</h4>
-                <p>Next.js 15, TypeScript, Tailwind CSS, Cloudflare Workers, OpenNext, Wrangler, Axios, Moment.js</p>
-            `,
-            tags: ['Next.js', 'TypeScript', 'Cloudflare Workers', 'Fullstack', 'Payment'],
-            imageUrls: [
-                'assets/images/payment-link/1.jpeg',
-                'assets/images/payment-link/2.jpeg',
-                'assets/images/payment-link/3.jpeg',
-            ],
-            liveUrl: '#',
-            sourceUrl: '#',
         },
         {
             id: 'personal-project-erpnext-ai',
@@ -258,12 +291,12 @@ const config = {
                 <br>
                 <h4>Key Features:</h4>
                 <ul>
-                    <li>Dashboard agregasi multi-branch dengan filter cabang dinamis</li>
-                    <li>Manajemen produk dengan Advanced Filter Builder berbasis JSON</li>
-                    <li>Sinkronisasi produk antar cabang (termasuk bulk sync "Sapu Jagat")</li>
-                    <li>Kontrol hak edit harga per cabang via flag <code>sync_allow_custom_price</code></li>
-                    <li>URL-synchronized filter state untuk UX yang konsisten</li>
-                    <li>Autentikasi dan server-side data fetching dengan pola BFF</li>
+                    <li>Multi-branch aggregation dashboard with dynamic branch filtering</li>
+                    <li>Product catalog management with JSON-based Advanced Filter Builder</li>
+                    <li>Cross-branch product synchronization (including bulk sync)</li>
+                    <li>Granular branch price editing permissions via <code>sync_allow_custom_price</code> flag</li>
+                    <li>URL-synchronized filter states for consistent UX and shareable URLs</li>
+                    <li>Secure authentication and server-side data fetching with BFF architecture</li>
                 </ul>
                 <br>
                 <h4>Technical Stack:</h4>
@@ -289,12 +322,12 @@ const config = {
                 <br>
                 <h4>Key Features:</h4>
                 <ul>
-                    <li>Manajemen multi-organisasi dan multi-event dalam satu akun</li>
-                    <li>Penjualan tiket berbayar dan gratis dengan sistem voucher diskon</li>
-                    <li>QR Code scanner untuk check-in peserta secara real-time</li>
-                    <li>Dashboard statistik organizer (active events, revenue, total peserta, check-in)</li>
-                    <li>Login multi-method: Email/Password, Google OAuth, OTP via email, 2FA</li>
-                    <li>API security layer dengan JWT x-api-key dan AES-256-CBC payload encryption</li>
+                    <li>Multi-organization and multi-event management within a single account</li>
+                    <li>Paid and free event ticketing system with promotional discount vouchers</li>
+                    <li>Real-time QR Code scanner for rapid attendee check-in</li>
+                    <li>Organizer analytics dashboard (active events, gross revenue, attendee counts, check-in stats)</li>
+                    <li>Multi-method authentication: Email/Password, Google OAuth, Email OTP, and 2FA</li>
+                    <li>API security layer with JWT x-api-key headers and AES-256-CBC payload encryption</li>
                 </ul>
                 <br>
                 <h4>Technical Stack:</h4>
@@ -349,12 +382,12 @@ const config = {
                 <br>
                 <h4>Key Features:</h4>
                 <ul>
-                    <li>Transfer uang internasional dengan konversi real-time (USD ↔ IDR dan multi-currency)</li>
-                    <li>Dukungan metode pembayaran QRIS dan kartu kredit/debit dengan alur berbeda</li>
-                    <li>Manajemen daftar penerima (tambah, simpan, pilih bank & nomor rekening)</li>
-                    <li>Riwayat transaksi terkelompok per tanggal (hari ini, kemarin, minggu ini)</li>
-                    <li>Autentikasi aman dengan Expo Secure Store & session management</li>
-                    <li>Dukungan multi-bahasa (i18n) dan tampilan responsif untuk mobile & web</li>
+                    <li>International money transfers with real-time currency conversion (USD ↔ IDR and multi-currency)</li>
+                    <li>Multi-method payment support for QRIS and credit/debit cards with dedicated workflows</li>
+                    <li>Recipient directory management (add, save, select bank & account numbers)</li>
+                    <li>Date-grouped transaction history (Today, Yesterday, This Week)</li>
+                    <li>Secure authentication with Expo Secure Store & encrypted session management</li>
+                    <li>Multi-language support (i18n) and fully responsive layouts across mobile & web</li>
                 </ul>
                 <br>
                 <h4>Technical Stack:</h4>
