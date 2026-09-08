@@ -161,6 +161,53 @@ const config = {
             sourceUrl: '#',
         },
         {
+            id: 'auto-transcript',
+            title: 'Auto-Transcript — Realtime Offline Meeting Captions',
+            description: 'Cut perceived transcription latency from 11.7s to 2.5s by building a Rust + Tauri desktop app that captures system audio with no virtual driver and runs
+Whisper entirely on-device — no audio ever leaves the machine.',
+            longDescription: `
+                <p>Enabled people to follow meetings in a language they are stidesktop app that captures the audio <strong>coming out</strong> of the computer, transcribes it locally with whisper.cpp, and renders it as large type in a window pinned next to Zoom — architected end-to-end in Rust and React as the sole developer.</p>
+                <p>Reduced the delay between a sentence being spoken and its tesh;11.7 s to 2.45&ndash;2.74 s (worst case 17.9 s to 4.3 s) by treating latencyas a measurement problem rather than a model problem: a replay harness proved inference was steady at ~0.7 s and that the real cost sat in the segmenter, the 30-second encoder window
+Whisper pays for regardless of chunk length, and a language-detection pass that
+                <p>Removed the usual BlackHole-style virtual audio driver from the install path by building capture on a CoreAudio process tap on macOS and WASAPI loopback on Windows
+&mdash; the user's output device is untouched, volume keys keep working, and seons instead of a driver install.</p>
+                <br>
+                <h4>Engineering Highlights:</h4>
+                <ul>
+                    <li><strong>4.7&times; latency reduction, measured not estiarness (<code>examples/sim.rs</code>) feeds a WAV file through the real pipeline at real speed and records user-perceived delay &mdash; the number a person actually feels, not real-time factor</li>
+                    <li><strong>Dual-model pipeline:</strong> <code>large-v3-tupt text while <code>small</code> drives the ~600 ms grey preview and doubles asthe language detector, sidestepping a full extra encoder pass in the large model</li>
+                    <li><strong>Adaptive segmentation:</strong> hangover drops  a chunk passes 3.5 s, with a 6 s hard cap cut at the quietest frame &mdash; the single largest latency contributor, which no amount of model speed could offset</li>
+                    <li><strong>Hallucination filtering:</strong> Whisper invenments are dropped on high <code>no_speech_prob</code>, a stock-phrase blacklist, word-repetition, and verbatim repeats of the previous segment</li>
+                    <li><strong>Two audio tracks, one invisible:</strong> the meparately for summaries but never shown live &mdash; speaker separation forfree, with no diarisation model on an 8 GB machine</li>
+                    <li><strong>Evidence-driven decisions:</strong> flash attenocalAgreement-2) adopted; a faster 450 ms preview cadence and a large-modelpreview both measured, found worse, and rejected</li>
+                </ul>
+                <br>
+                <h4>Product Features:</h4>
+                <ul>
+                    <li>Fully offline &mdash; the app makes no network connectimodel you choose</li>
+                    <li>Two deliberately different views: a live view with a fixed reading line and no scrolling, and a history view with timestamps, full-text search across every
+session, and inline editing</li>
+                    <li>Automatic handling of meetings that switch between English and Indonesian mid-sentence</li>
+                    <li>Export to Markdown, plain text, SRT, and JSON</li>
+                    <li>Quality levels that configure the main and preview models together</li>
+                    <li>Cross-platform release pipeline: GitHub Actions builds el) and Windows installers, gated on a version-vs-tag check and published onlywhen every platform succeeds</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>Rust, Tauri 2, whisper.cpp (whisper-rs, Metal backend), cpal, rubato, SQLite (rusqlite), React 19, TypeScript, Zustand, Vite, GitHub Actions</p>
+                <br>
+                <p><em>Latency and memory figures measured on a MacBook Pro (M2, 8 GB) with the Metal backend; full methodology and the rejected experiments are documented in the repository's BENCHMARK.md.</em></p>
+            `,
+            tags: ['Rust', 'Tauri', 'React', 'TypeScript', 'Whisper', 'On-Devicn Source'],
+            imageUrls: [
+                'https://github.com/kanam129/auto-transcript/raw/main/docs/screenshots/live.png',
+                'https://github.com/kanam129/auto-transcript/raw/main/docs/screenshots/onboarding.png',
+                'https://github.com/kanam129/auto-transcript/raw/main/docs/screenshots/history.png',
+            ],
+            liveUrl: 'https://github.com/kanam129/auto-transcript/releases/late
+            sourceUrl: 'https://github.com/kanam129/auto-transcript',
+        },
+        {
             id: 'mpstore-payment-link',
             title: 'MPStore Payment Link & Invoice',
             description: 'Eliminated payment integration complexity for merchants by building a shareable invoice link system supporting QRIS, multi-bank Virtual Account, and Credit Card — with dynamic fee calculation and edge deployment on Cloudflare Workers.',
