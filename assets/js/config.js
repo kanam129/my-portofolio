@@ -163,8 +163,7 @@ const config = {
         {
             id: 'auto-transcript',
             title: 'Auto-Transcript — Realtime Offline Meeting Captions',
-            description: 'Cut perceived transcription latency from 11.7s to 2.5s by building a Rust + Tauri desktop app that captures system audio with no virtual driver and runs
-Whisper entirely on-device — no audio ever leaves the machine.',
+            description: 'Cut perceived transcription latency from 11.7s to 2.5s by building a Rust + Tauri desktop app that captures system audio with no virtual driver and runs Whisper entirely on-device — no audio ever leaves the machine.',
             longDescription: `
                 <p>Enabled people to follow meetings in a language they are stidesktop app that captures the audio <strong>coming out</strong> of the computer, transcribes it locally with whisper.cpp, and renders it as large type in a window pinned next to Zoom — architected end-to-end in Rust and React as the sole developer.</p>
                 <p>Reduced the delay between a sentence being spoken and its tesh;11.7 s to 2.45&ndash;2.74 s (worst case 17.9 s to 4.3 s) by treating latencyas a measurement problem rather than a model problem: a replay harness proved inference was steady at ~0.7 s and that the real cost sat in the segmenter, the 30-second encoder window
@@ -204,7 +203,7 @@ session, and inline editing</li>
                 'https://github.com/kanam129/auto-transcript/raw/main/docs/screenshots/onboarding.png',
                 'https://github.com/kanam129/auto-transcript/raw/main/docs/screenshots/history.png',
             ],
-            liveUrl: 'https://github.com/kanam129/auto-transcript/releases/late
+            liveUrl: 'https://github.com/kanam129/auto-transcript/releases/late',
             sourceUrl: 'https://github.com/kanam129/auto-transcript',
         },
         {
