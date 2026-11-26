@@ -68,6 +68,68 @@ const config = {
     ],
     projects: [
         {
+            id: 'digital-stream',
+            title: 'Digital Stream — Encrypted HLS Video Platform',
+            description: 'Engineered a serverless encrypted HLS video streaming and transcoding platform on Cloudflare Workers, R2, and Containers — combining zero-wait Fast-Cut ingestion, 4-shard parallel 480p ABR transcoding, and a domain-locked embed player.',
+            longDescription: `
+                <p>Built an end-to-end encrypted HLS video streaming service on Cloudflare's edge stack — handling resumable 8 MB chunked uploads into private R2 storage via scoped upload tokens, followed by retry-safe FFmpeg Fast-Cut (<code>-c:v copy</code>) packaging with per-video AES-128-CBC encryption so videos become playable immediately without waiting for full re-encoding.</p>
+                <p>Automated multi-resolution Adaptive Bitrate (ABR) upgrades by fanning out background 480p transcoding across a fixed pool of up to 4 parallel Cloudflare Container shards (2 concurrent FFmpeg workers each) — maintaining active jobs with outbound heartbeat renewals, issuing instant auto-stop on completion to scale to zero, and dynamically upgrading <code>master.m3u8</code> once all shards finish.</p>
+                <p>Protected digital video delivery behind stateless HMAC-SHA256 signed tokens (cached <code>CryptoKey</code> for near-zero verification overhead), timing-safe admin auth, and edge segment caching via <code>caches.default</code> with <code>ReadableStream.tee()</code> — paired with a custom HLS.js player supporting standalone and domain-locked frameless <code>/embed</code> playback (CSP <code>frame-ancestors</code> + <code>postMessage</code> events).</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Resumable 8 MB chunked upload pipeline with scoped temporary upload sessions &amp; retry-safe finalization</li>
+                    <li>Zero-wait FFmpeg Fast-Cut (<code>-c:v copy</code>) HLS packaging with per-video AES-128-CBC segment encryption</li>
+                    <li>4-shard parallel Cloudflare Container transcoding pool (Original + 480p ABR) with instant auto-stop scale-to-zero</li>
+                    <li>Private R2 streaming gated by stateless HMAC-SHA256 tokens and Cloudflare Edge caching (<code>ETag</code> / <code>304</code>)</li>
+                    <li>Frameless embed player (<code>/embed/:token/:video_id</code>) with CSP <code>frame-ancestors</code> domain lock, <code>no-referrer</code>, and <code>postMessage</code> lifecycle events</li>
+                    <li>Custom HLS.js player with live canvas buffer bar, ABR quality switcher, 3-zone gestures (double-tap &plusmn;10s, press-and-hold 2x speed), keyboard shortcuts, PiP, and <code>localStorage</code> watch-progress resume</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>TypeScript, Cloudflare Workers, Cloudflare Containers, Durable Objects, Cloudflare R2, Node.js, FFmpeg, Docker (Alpine), HLS.js, Web Crypto API (HMAC-SHA256 &amp; AES-128), Bun</p>
+            `,
+            tags: ['Cloudflare Workers', 'Cloudflare Containers', 'Cloudflare R2', 'FFmpeg', 'TypeScript', 'HLS Streaming', 'Fullstack'],
+            imageUrls: [
+                'assets/images/digital-stream/1.png',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
+            id: 'cuanki-finance-companion',
+            title: 'Cuanki — AI Personal Finance Companion',
+            description: 'Built a gamified personal finance companion combining an 8-mood interactive mascot, adaptive daily budgeting, multi-wallet & virtual pocket savings, and an 11-tool AI chat + MCP backend on Cloudflare Workers & D1.',
+            longDescription: `
+                <p>Built a cross-platform personal finance companion in React Native (Expo SDK 54) designed to make daily expense tracking effortless and engaging — pairing a responsive 3-tab interface (Overview, History, Reports) with an 8-mood animated mascot, 48 custom emotes, a 580-template smart speech engine, streak &amp; level progression, and a dual-persona tone (supportive or playful roast).</p>
+                <p>Engineered a complete cashflow and planning system featuring payday-aware adaptive daily budgets with auto-allocation presets (50/30/20, 70/20/10, Safe-to-Spend), multi-wallet management (Cash, Bank, E-Wallet, Savings) with transfers and balance reconciliation, and virtual pocket saving goals (Celengan) that earmark funds inside linked wallets — supporting both target-based and ongoing targetless savings alongside behavioral analytics and Excel/CSV report export.</p>
+                <p>Architected an edge-first companion backend using Hono on Cloudflare Workers and Cloudflare D1 — delivering cloud sync, an 11-tool conversational AI financial assistant powered by DeepSeek on Cloudflare Workers AI with a stateless JSON-RPC 2.0 MCP server interface, and Cloudflare Cron-scheduled FCM HTTP v1 reminders tailored to each user's streak and persona.</p>
+                <br>
+                <h4>Key Features:</h4>
+                <ul>
+                    <li>Interactive 8-mood animated mascot with poke feedback, 48 custom animated emotes, 580-template contextual speech engine, levels, daily quests &amp; streaks</li>
+                    <li>Adaptive daily budgeting synced to monthly/weekly payday cycles with auto-allocation planner and tomorrow's allowance projection</li>
+                    <li>Multi-wallet tracking (Cash, Bank, E-Wallet, Savings) with inter-wallet transfers, balance reconciliation, and free vs. earmarked balance breakdown</li>
+                    <li>Virtual pocket saving goals (Celengan) supporting target-based &amp; targetless ongoing savings, leftover budget prompts, withdrawals, and goal archiving</li>
+                    <li>11-tool AI financial chat assistant (DeepSeek via Cloudflare Workers AI) + stateless MCP JSON-RPC 2.0 server for natural-language logging, transfers, goals &amp; summaries</li>
+                    <li>Behavioral spending analytics (weekly comparisons, month-end burn forecast, habit tips) plus one-tap Excel (.xlsx) &amp; CSV monthly report export</li>
+                    <li>Cloudflare D1 cloud sync and Cron-scheduled FCM HTTP v1 daily check-in &amp; No-Spend reminders</li>
+                </ul>
+                <br>
+                <h4>Technical Stack:</h4>
+                <p>React Native, Expo (SDK 54), Expo Router, TypeScript, NativeWind, Redux Toolkit, Zustand, React Native Reanimated, Hono, Cloudflare Workers, Cloudflare D1, Cloudflare Workers AI (DeepSeek), MCP (JSON-RPC 2.0), Zod, Firebase Cloud Messaging (FCM), SheetJS (xlsx)</p>
+            `,
+            tags: ['React Native', 'Expo', 'TypeScript', 'Cloudflare Workers', 'Cloudflare D1', 'AI Agent', 'Fintech'],
+            imageUrls: [
+                'assets/images/cuanki/1.png',
+                'assets/images/cuanki/2.png',
+                'assets/images/cuanki/3.png',
+                'assets/images/cuanki/4.png',
+            ],
+            liveUrl: '#',
+            sourceUrl: '#',
+        },
+        {
             id: 'mpix-store-mcp',
             title: 'MPIX Store MCP Server — AI POS & Catalog Manager',
             description: 'Enabled conversational store & cashier management for merchants by building an MCP (Model Context Protocol) server deployed on Cloudflare Workers edge, letting users manage online catalogs, update products, and toggle store operations directly via natural language AI prompts.',
